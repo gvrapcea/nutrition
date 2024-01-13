@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body class="w3-container" style="margin:auto;max-width:1200px">
+<style>
+.selectbt{
+background-color:#092f6f;
+color:white;
+border-radius:20px;
+border:0px;
+}
+.selectbtxx{
+background-color:white;
+color:black;
+border-radius:20px;
+border:3px solid #8bb73e;
+}
+.blueclick{
+background-color:#092f6f;
+color:white;
+border-radius:20px;
+border:0px;
+width:200px;
+text-align: center;
+padding:10px;
+cursor:pointer;
+}
+.greenclick{
+background-color:#8bb73e;
+color:white;
+border-radius:20px;
+border:0px;
+width:200px;
+text-align: center;
+padding:10px;
+cursor:pointer;
+}
+.romaniabt{
+background-color:white;
+color:black;
+border-radius:20px;
+border:5px solid #092f6f;
+text-align: center;
+padding:10px;
+cursor:pointer;
+margin:10px;
+}
+.moldovabt{
+background-color:white;
+color:black;
+border-radius:20px;
+border:5px solid #8bb73e;
+text-align: center;
+padding:10px;
+cursor:pointer;
+margin:10px;
+}
+.taxa{color:#8bb73e; font-weight:bold;}
+.link{color:blue}
+.greentxt{color:#8bb73e}
+.flag{width:140px;height:60px;padding:5px}
+.flagx{width:90px;height:60px;padding:5px}
+.zoom {
+  transition: transform .2s; 
+}
+.square{
+background-color:white;
+color:black;
+border-radius:20px;
+border:5px solid #8bb73e;
+padding:10px;
+margin:10px;
+}
+.zoom:hover {
+  transform:scale(1.1);
+    -ms-transform:scale(1.1); /* IE 9 */
+    -moz-transform:scale(1.1); /* Firefox */
+    -webkit-transform:scale(1.1); /* Safari and Chrome */
+    -o-transform:scale(1.1); /* Opera */
+}
+</style>
+<h1><b>Alătură-te SSN!</b></h1>
+<!--
+<h3>Membrii SSN beneficiază de: .............</h3>
+<br>
+-->
+<br>
+<h3>Vezi mai jos categoriile de membership la care te poți înscrie:
+</h3>
+<i style="color:gray">*persoanele din Republica Moldova și alte 
+<a href="https://www.worlddata.info/developing-countries.php" target="_blank" class="link">țări defavorizate</a> beneficiază de o <b class="greentxt">taxă redusă!</b></i>
+
+<br><br>
+<h2>Membrii cu drept de vot:
+</h2><br>
+
+<div class="w3-container selectbt"><br>
+• Profesioniști în nutriție, cu studii formale: dieteticieni și tehnicieni nutriționiști (ori similar)<br>
+• Medici cu preocupări în domeniul nutriției<br>
+• Cercetători și profesori din domenii precum tehnologia & chimia alimentară ori alte domenii similare<br>
+• Absolvenți ai unor studii informale sau cu competențe limitate<br><br>
+<div class="w3-container greenclick zoom" onclick="show1('Prof')">
+Înscrie-te acum!
+</div>
+<br>
+</div>
+<br><br>
+<div class="w3-container selectbt"><br>
+• Studenți la Facultatea de Nutriție și Dietetică<br>
+<b>înscriși la studii universitare cu taxă</b><br><br>
+<div class="w3-container greenclick zoom" onclick="show1('Studtax')">
+Înscrie-te acum!
+</div>
+<e class="taxa">Gratuit</e> pentru cei din Republica Moldova și alte țări defavorizate*
+<br><br>
+</div>
+<br><br>
+<div class="w3-container selectbtxx"><br>
+• Studenți la Facultatea de Nutriție și Dietetică<br>
+<b>înscriși la studii universitare fără taxă</b><br><br>• Masteranzi și doctoranzi în domeniul științelor nutriției<br><br>
+<div class="w3-container blueclick zoom" onclick="show1('Studfree')">
+Înscrie-te GRATUIT!
+</div><br>
+</div>
+
+<br><br>
+<h2>Membrii fără drept de vot:
+</h2><br>
+
+<div class="w3-container selectbt"><br>
+• Profesioniști din domenii conexe<br>
+• Antrenori de sport, trainer, coach și similar<br>
+• Profesioniști ai domeniilor gastronomie și oenologie<br>
+• Profesioniști din domeniul lifestyle, respectiv promotori ai unui stil de viață sănătos<br>
+• Profesioniști din domeniul științelor vieții, inclusiv din domeniile medicale (fără competențe în nutriție), psihologie,antropologie, etc.
+<br><br>
+<div class="w3-container greenclick zoom" onclick="show1('Profww')">
+Înscrie-te acum!
+</div>
+<br>
+</div>
+<br><br>
+
+<div class="w3-container selectbt"><br>
+• Studenți la facultăți din domenii conexe<br>
+<b>înscriși la studii universitare cu taxă</b><br><br>
+<div class="w3-container greenclick zoom" onclick="show1('Studtaxww')">
+Înscrie-te acum!
+</div>
+<e class="taxa">Gratuit</e> pentru cei din Republica Moldova și alte țări defavorizate*
+<br><br>
+</div>
+<br><br>
+<div class="w3-container selectbtxx"><br>
+• Studenți la facultăți din domenii conexe<br>
+<b>înscriși la studii universitare fără taxă</b><br><br>• Masteranzi și doctoranzi în domenii conexe<br><br>
+<div class="w3-container blueclick zoom" onclick="show1('Studfreeww')">
+Înscrie-te GRATUIT!
+</div><br>
+</div>
+<br><br><br>
+
+<!-- Modal deschis selectie 1 -->
+<div id="id01" class="w3-modal">
+  <div class="w3-modal-content">
+    <div class="w3-container">
+      <span onclick="close1()"
+      class="w3-button w3-display-topright">&times;</span>
+      <h3>Alege locul în care profesezi:</h3>
+<i style="color:gray">*persoanele din Republica Moldova și alte 
+<a href="https://www.worlddata.info/developing-countries.php" target="_blank" class="link">țări defavorizate</a> beneficiază de o <b class="greentxt">taxă redusă!</b></i><br><br>
+<div class="w3-container w3-row">
+<div class="w3-half w3-container">
+<div class="w3-container romaniabt zoom" onclick="show2('RO')">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Flag_of_Romania.svg" alt="RO" class="flag">
+<br><br>
+<b>România și străinătate</b><br>
+cu excepția Republicii Moldova și a
+altor țări defavorizate*<br><br>
+<h3 id="taxarom" class="taxa"></h3>
+</div>
+</div>
+<div class="w3-half w3-container">
+  <div class="w3-container moldovabt zoom" onclick="show2('MD')">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/27/Flag_of_Moldova.svg" alt="MD" class="flagx">
+<br><br>
+<b>Republica Moldova și alte țări
+defavorizate</b><br><br><br>
+<h3 id="taxamd" class="taxa"></h3>
+</div>
+</div>
+</div>
+    </div><br>
+  </div>
+</div>
+
+
+<!-- Modal deschis selectie 2 -->
+<div id="id02" class="w3-modal" style="z-index:99">
+  <div class="w3-modal-content">
+    <div class="w3-container">
+      <span onclick="close2()"
+      class="w3-button w3-display-topright">&times;</span>
+      <h3><b>Trimite cererea de adeziune</b></h3>
+<h4>Printr-un mesaj la adresa <b class="link">contact@srsn.ro</b> care va conține:</h4><br>
+<div class="square">
+<b>Titlu: </b> Înscriere membru SSN <br><br>
+<b>Conținut text:</b>
+<p id="mmb3"></p>
+<p id="mmb"></p>
+<p id="mmb2"></p>
+
+<b>Atașamente:</b> <br>
+<p>1. Cererea de adeziune completată și semnată <br>(<a href="https://drive.google.com/file/d/1KzxqNF1AM17EUop9Et7XIOciM7uRmFpC/view" target="_blank"><i class="link">Descarcă cererea de adeziune de aici</i></a>)</p>
+<p>2. O dovadă care să demonstreze încadrarea în categoria de membership selectată</p>
+</div>
+<br>
+<center>
+<h5>După primirea și verificarea fișierelor vă vom contacta prin email în cel mai scurt timp pentru finalizarea înscrierii.</h5>
+<b>Taxă înscriere: </b><i id="tax" class="taxa"></i>
+</center>
+    </div><br><br><br>
+  </div>
+</div>
+
+
+<script>
+function show1(e) {
+  document.getElementById('id01').style.display='block';
+  sessionStorage.setItem("membershipssn", e);
+  let membershipssn = sessionStorage.getItem("membershipssn");
+  //profesionisti
+  if (membershipssn == "Prof"){ 
+  document.getElementById("taxarom").innerHTML = "450 lei/an sau 90 euro/an";
+  document.getElementById("taxamd").innerHTML = "250 lei/an sau 50 euro/an";}
+  //studenti la taxa
+  if (membershipssn == "Studtax"){ 
+  document.getElementById("taxarom").innerHTML = "50 lei/an sau 10 euro/an";
+  document.getElementById("taxamd").innerHTML = "GRATUIT";}
+  //studenti fara taxa
+  if (membershipssn == "Studfree"){ 
+  document.getElementById("taxarom").innerHTML = "GRATUIT";
+  document.getElementById("taxamd").innerHTML = "GRATUIT";}
+  
+  //profesionisti conex
+  if (membershipssn == "Profww"){ 
+  document.getElementById("taxarom").innerHTML = "350 lei/an sau 70 euro/an";
+  document.getElementById("taxamd").innerHTML = "150 lei/an sau 30 euro/an";}
+  //studenti la taxa conex
+  if (membershipssn == "Studtaxww"){ 
+  document.getElementById("taxarom").innerHTML = "50 lei/an sau 10 euro/an";
+  document.getElementById("taxamd").innerHTML = "GRATUIT";}
+  //studenti fara taxa conex
+  if (membershipssn == "Studfreeww"){ 
+  document.getElementById("taxarom").innerHTML = "GRATUIT";
+  document.getElementById("taxamd").innerHTML = "GRATUIT";}
+  
+}
+function close1(){
+	document.getElementById('id01').style.display='none';
+	localStorage.removeItem("membershipssn");
+}
+function show2(q) {
+  document.getElementById('id02').style.display='block';
+  sessionStorage.setItem("tarassn", q);
+  let tarassn = sessionStorage.getItem("tarassn");
+  let membershipssn = sessionStorage.getItem("membershipssn");
+  //profesionisti
+  if (membershipssn == "Prof"){ 
+  document.getElementById("mmb").innerHTML = "Membru cu drept de vot ";
+  document.getElementById("mmb2").innerHTML = "• Profesioniști în nutriție, cu studii formale: dieteticieni și tehnicieni nutriționiști (ori similar) <br>• Medici cu preocupări în domeniul nutriției<br>• Cercetători și profesori din domenii precum tehnologia & chimia alimentară ori alte domenii similare<br>• Absolvenți ai unor studii informale sau cu competențe limitate<br><br>";
+  if (tarassn == "RO"){
+  document.getElementById("tax").innerHTML = "450 lei/an sau 90 euro/an";
+  document.getElementById("mmb3").innerHTML = "România și străinătate, cu excepția Republicii Moldova și a altor țări defavorizate";
+  }
+  if (tarassn == "MD"){
+  document.getElementById("tax").innerHTML = "250 lei/an sau 50 euro/an";
+  document.getElementById("mmb3").innerHTML = "Republica Moldova și alte țări defavorizate";
+  }
+  }
+  //studenti la taxa
+  if (membershipssn == "Studtax"){ 
+  document.getElementById("mmb").innerHTML = "Membru cu drept de vot ";
+  document.getElementById("mmb2").innerHTML = "• Studenți la Facultatea de Nutriție și Dietetică <br> înscriși la studii universitare cu taxă<br><br>";
+  if (tarassn == "RO"){
+  document.getElementById("tax").innerHTML = "50 lei/an sau 10 euro/an";
+  document.getElementById("mmb3").innerHTML = "România și străinătate, cu excepția Republicii Moldova și a altor țări defavorizate";
+  }
+  if (tarassn == "MD"){
+  document.getElementById("tax").innerHTML = "GRATUIT";
+  document.getElementById("mmb3").innerHTML = "Republica Moldova și alte țări defavorizate";
+}
+}
+//studenti fara taxa
+  if (membershipssn == "Studfree"){ 
+  document.getElementById("mmb").innerHTML = "Membru cu drept de vot ";
+  document.getElementById("mmb2").innerHTML = "• Studenți la Facultatea de Nutriție și Dietetică<br> înscriși la studii universitare fără taxă<br><br>• Masteranzi și doctoranzi în domeniul științelor nutriției<br><br>";
+  if (tarassn == "RO"){
+  document.getElementById("tax").innerHTML = "GRATUIT";
+  document.getElementById("mmb3").innerHTML = "România și străinătate, cu excepția Republicii Moldova și a altor țări defavorizate";
+  }
+  if (tarassn == "MD"){
+  document.getElementById("tax").innerHTML = "GRATUIT";
+  document.getElementById("mmb3").innerHTML = "Republica Moldova și alte țări defavorizate";
+}
+}
+
+//profesionisti conex
+  if (membershipssn == "Profww"){ 
+  document.getElementById("mmb").innerHTML = "Membru fără drept de vot ";
+  document.getElementById("mmb2").innerHTML = "• Profesioniști din domenii conexe<br>• Antrenori de sport, trainer, coach și similar<br>• Profesioniști ai domeniilor gastronomie și oenologie<br>• Profesioniști din domeniul lifestyle, respectiv promotori ai unui stil de viață sănătos<br>• Profesioniști din domeniul științelor vieții, inclusiv din domeniile medicale (fără competențe în nutriție), psihologie,antropologie, etc.<br><br>";
+  if (tarassn == "RO"){
+  document.getElementById("tax").innerHTML = "350 lei/an sau 70 euro/an";
+  document.getElementById("mmb3").innerHTML = "România și străinătate, cu excepția Republicii Moldova și a altor țări defavorizate";
+  }
+  if (tarassn == "MD"){
+  document.getElementById("tax").innerHTML = "150 lei/an sau 30 euro/an";
+  document.getElementById("mmb3").innerHTML = "Republica Moldova și alte țări defavorizate";
+  }
+  }
+  //studenti la taxa conex
+  if (membershipssn == "Studtaxww"){ 
+  document.getElementById("mmb").innerHTML = "Membru fără drept de vot ";
+  document.getElementById("mmb2").innerHTML = "• Studenți la facultăți din domenii conexe înscriși la studii universitare cu taxă<br><br>";
+  if (tarassn == "RO"){
+  document.getElementById("tax").innerHTML = "50 lei/an sau 10 euro/an";
+  document.getElementById("mmb3").innerHTML = "România și străinătate, cu excepția Republicii Moldova și a altor țări defavorizate";
+  }
+  if (tarassn == "MD"){
+  document.getElementById("tax").innerHTML = "GRATUIT";
+  document.getElementById("mmb3").innerHTML = "Republica Moldova și alte țări defavorizate";
+}
+}
+//studenti fara taxa conex
+  if (membershipssn == "Studfreeww"){ 
+  document.getElementById("mmb").innerHTML = "Membru fără drept de vot ";
+  document.getElementById("mmb2").innerHTML = "• Studenți la facultăți din domenii conexe înscriși la studii universitare fără taxă<br>• Masteranzi și doctoranzi în domenii conexe<br><br>";
+  if (tarassn == "RO"){
+  document.getElementById("tax").innerHTML = "GRATUIT";
+  document.getElementById("mmb3").innerHTML = "România și străinătate, cu excepția Republicii Moldova și a altor țări defavorizate";
+  }
+  if (tarassn == "MD"){
+  document.getElementById("tax").innerHTML = "GRATUIT";
+  document.getElementById("mmb3").innerHTML = "Republica Moldova și alte țări defavorizate";
+}
+}
+
+
+
+}
+
+
+function close2(){
+	document.getElementById('id02').style.display='none';
+	localStorage.removeItem("tarassn");
+}
+</script>
+
+
+
+
+</body>
+</html>
