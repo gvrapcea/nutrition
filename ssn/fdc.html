@@ -85,7 +85,7 @@ function showDetails(fdcId) {
     .then(response => response.json())
     .then(data => {
       const modalContent = document.getElementById("modalContent");
-      modalContent.innerHTML = "<h3>Nutrients:</h3><ul>";
+      modalContent.innerHTML = "<h3>Valori nutriționale pentru 100g:</h3><ul>";
       data.foodNutrients.forEach(nutrient => {
         modalContent.innerHTML += `<li><strong>${nutrient.nutrient.name}</strong>: ${nutrient.amount} ${nutrient.nutrient.unitName}</li>`;
       });
