@@ -24,7 +24,7 @@
   .padd{padding:10px; border-radius:20px}
   .paddx{border-radius:0 20px 0 0}
   .search_btt{background-color:black; color:white; border-radius:10px; cursor:pointer; border:0px; padding:5px}
-  .details{background-color:#072E70; color:#A6D336; border-radius:10px; cursor:pointer;width:90%; border:0px; padding:5px}
+  .details{background-color:#072E70; color:#A6D336; border-radius:10px; cursor:pointer;width:90%;max-width:60px; border:0px; padding:5px}
 </style>
 </head>
 <body>
@@ -69,7 +69,7 @@ function displayFoodResults(foods) {
   const table = document.createElement("table");
   table.classList.add("w3-table", "w3-striped", "w3-bordered");
   const headerRow = table.insertRow();
-  headerRow.innerHTML = "<th>Nume</th><th>Nutrienți</th>";
+  headerRow.innerHTML = "<th>Denumire</th><th>Nutrienți</th>";
 
   foods.forEach(food => {
     const row = table.insertRow();
