@@ -1,8 +1,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <style>
-body{width:100%;max-width:600px;margin:auto}
+.leftt{margin:auto;max-width:600px}
 path:hover {
   fill:#87a836;
   cursor:pointer;
@@ -14,53 +15,97 @@ text {
   cursor:pointer;
 }
 .gray{color:gray}
+.button-2 {
+  background-color: rgba(51, 51, 51, 0.05);
+  border-radius: 8px;
+  border-width: 0;
+  color: #333333;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 12px;
+  text-align: center;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+} 
+.pddaa{position:absolute;top:0px;width:100%}
+.xxxx{position: -webkit-sticky;
+  position: sticky;
+  top: -40px;
+  float:right;
+  background-color:white;
+  border:1px solid black;
+  border-radius:10px;
+  font-size:20px;
+}
+.d{display:none;
+background-color:#edf2eb;}
 </style>
 <!-- #072E70 SSN blue -->
 <body>
-
+<br>
 <!-- The Modal -->
 <div id="id01" class="w3-modal">
-  <div class="w3-modal-content w3-animate-zoom" style="width:95%">
+  <div class="pddaa w3-modal-content w3-animate-zoom">
     <div class="w3-container">
       <span onclick="document.getElementById('id01').style.display='none';$('.diet').hide();"
-      class="w3-button w3-display-topright">&times;</span>
+      class="xxxx w3-button">&times;</span>
       <br><br>
       <div class="diet" id="niculescu" style="display:none">
       <hr>
-      <b>Mihai Niculescu, MD, PhD</b><br>
+      <b>Mihai Niculescu, MD, PhD</b>&nbsp;&nbsp;&nbsp;<i class="gray">Acceptă clienți din România</i><br>
       Nutriție de precizie. Consultant în nutriție pentru persoane fizice și juridice.<br><br>
-<i>Acceptă clienți din România</i><br><br>
+  <!-- HTML !-->
+<button id="1" class="button-2" onclick="$('#1').hide();$('#1d').show(300);"><i class="fa fa-angle-down"></i>&nbsp;&nbsp;&nbsp; Detalii</button> 
+ <div id="1d" class="d">
+<button id="1s" class="button-2" onclick="$('#1').show();$('#1d').hide(300);"><i class="fa fa-angle-up"></i></button><br><br>
 <b class="gray">Contact:</b><br>
 Email: mihai.niculescu@gmail.com<br><br>
-<i style="color:gray">Fără drept de practică in România. Consultant în nutriție conform legislației USA.</i>
+<i style="color:gray">Fără drept de practică in România. Consultant în nutriție conform legislației USA.</i> 
+</div>
       <hr>
       </div>
       
       <div class="diet" id="Enache Liliana" style="display:none">
       <hr>
-      <b>Enache Liliana </b><br>
+      <b>Enache Liliana </b>&nbsp;&nbsp;&nbsp;<i class="gray">București</i><br>
       Nutriția pre/post-bariatrică, nutriția oncologică, nutriția în sarcină etc.<br><br>
-<i>București</i><br><br>
+      <!-- HTML !-->
+<button id="2" class="button-2" onclick="$('#2').hide(100);$('#2d').show(300);"><i class="fa fa-angle-down"></i>&nbsp;&nbsp;&nbsp; Detalii</button> 
+ <div id="2d" class="d">
+<button id="2s" class="button-2" onclick="$('#2').show();$('#2d').hide(300);"><i class="fa fa-angle-up"></i></button><br><br>
 <b class="gray">Contact:</b><br>
 Whatsapp: 0766 415 977 <br>
 Telefon: 0766 415 977 <br>
 Email: lilianaenache.ro@gmail.com
-<i style="color:gray"></i>
+</div>
       <hr>
       </div>
       
       <div class="diet" id="Vasii Ovidiu Sorin" style="display:none">
       <hr>
-      <b>Vasii Ovidiu Sorin</b><br>
+      <b>Vasii Ovidiu Sorin</b>&nbsp;&nbsp;&nbsp;<i class="gray">Bistrița</i><br>
       Obezitate, diabet zaharat tip 1 si 2, Sindromul intestinului permeabil, colita, boala crohn, hipertensiune arterială, intoleranță la histamine<br><br>
-<i>Bistrița</i><br><br>
+      <!-- HTML !-->
+<button id="3" class="button-2" onclick="$('#3').hide(100);$('#3d').show(300);"><i class="fa fa-angle-down"></i>&nbsp;&nbsp;&nbsp; Detalii</button> 
+ <div id="3d" class="d">
+<button id="3s" class="button-2" onclick="$('#3').show();$('#3d').hide(300);"><i class="fa fa-angle-up"></i></button><br><br>
 <b class="gray">Contact:</b><br>
 Adresă cabinet: Bistrița, Str. Constantin Brailoiu, nr.1C, bloc 2, ap.4, județul BN<br>
 Whatsapp: 0745355182 <br>
 Telefon: 0745355182 <br>
 Email: programari@healthsolutions.ro <br>
 Website: www.healthsolutions.ro
-<i style="color:gray"></i>
+</div>
       <hr>
       </div>
       
@@ -69,7 +114,7 @@ Website: www.healthsolutions.ro
   </div>
 </div>
 
-
+<div class="w3-row middlee"><div class="w3-threequarter leftt">
 <div class="prev-right col-md-8 wide">
       <div id="mapwrapper">
         <div id="map_base">
@@ -169,8 +214,26 @@ Website: www.healthsolutions.ro
       </div><!--mapwrapper-->
       
     </div><!--prev-right-->
+    <br><br>
+<center>
+<div class="btn-group">
+  <button onclick="document.getElementById('id01').style.display='block';$('.diet').show();" class="button">TOȚI SPECIALIȘTII</button>
+</div><br><br>
+</center>    
+</div><div class="w3-quarter w3-container"> 
+<div class="listt">
+<b>Alege județul:</b><br><br>
+<div class="jud" onclick="document.getElementById('id01').style.display='block';
+     document.getElementById('Vasii Ovidiu Sorin').style.display='block';">Bistrița-Năsăud</div>
+     <div class="jud" onclick="document.getElementById('id01').style.display='block';
+document.getElementById('Enache Liliana').style.display='block'">București</div>
+</div>
 <br><br>
+</div></div>   
+   
 <style>
+.jud{cursor:pointer;padding:5px;border:1px solid gray;transition:.2s}
+.jud:hover{background-color:#ebf5ee}
 .btn-group .button {
   background-color: #072E70; /* Green */
   border: 1px solid green;
@@ -193,11 +256,7 @@ Website: www.healthsolutions.ro
   background-color: #A6D336; color:#072E70;
 }
 </style>
-<center>
-<div class="btn-group">
-  <button onclick="document.getElementById('id01').style.display='block';$('.diet').show();" class="button">TOȚI SPECIALIȘTII</button>
-</div>
-</center>
+
 
 <script>
 const paths = document.querySelectorAll('path');
