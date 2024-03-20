@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Search</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  .zoom {
+  transition: transform .2s; /* Animation */
+}
+
+.zoom:hover {
+  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+  .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  .padd{padding:10px; border-radius:20px}
+  .paddx{border-radius:0 20px 0 0}
+  .search_btt{background-color:black; color:white; border-radius:10px; cursor:pointer; border:0px; padding:5px}
+  .details{background-color:#072E70; color:#A6D336; border-radius:10px; cursor:pointer;width:90%; border:0px; padding:5px}
+</style>
+</head>
+<body>
+
+<div class="w3-container">
+  <h2>Căutare în <b>FoodData Central</b></h2><br>
+  <input type="text" id="foodInput" placeholder="Caută aliment în engleză">
+  <button onclick="searchFood()" class="zoom search_btt">&nbsp;<i class="fa fa-search"></i>&nbsp;</button>
+</div>
+
+<div id="foodTable" class="w3-container"></div>
+
+<!-- Modal -->
+<div id="myModal" class="w3-modal">
+  <div class="padd w3-modal-content w3-animate-zoom">
+    <span class="paddx w3-button w3-display-topright" onclick="closeModal()">&times;</span>
+    <div id="modalContent"></div><br><br>
+  </div>
+</div>
+
+<script>
+// FoodData Central API key
+const apiKey = "jhqKz0ZJdGB3Z8UodzkBlMZKhUOGVmCr6EcOtFN0";
+
+function searchFood() {
+  const searchTerm = document.getElementById("foodInput").value;
+  fetch(`https://api.nal.usda.gov/fdc/v1/foods/search?query=${searchTerm}&api_key=${apiKey}`)
+    .then(response => response.json())
+    .then(data => displayFoodResults(data.foods))
+    .catch(error => console.error('Error fetching data:', error));
+}
+
+function displayFoodResults(foods) {
+  const foodTable = document.getElementById("foodTable");
+  foodTable.innerHTML = ""; // Clear previous results
+
+  if (foods.length === 0) {
+    foodTable.innerHTML = "<p>No results found.</p>";
+    return;
+  }
+
+  const table = document.createElement("table");
+  table.classList.add("w3-table", "w3-striped", "w3-bordered");
+  const headerRow = table.insertRow();
+  headerRow.innerHTML = "<th>Nume</th><th>Nutrienți</th>";
+
+  foods.forEach(food => {
+    const row = table.insertRow();
+    row.innerHTML = `<td>${food.description}</td>
+                     <td><button onclick="showDetails('${food.fdcId}')" class="zoom details"><i class="fa fa-bar-chart"></i></button></td>`;
+  });
+
+  foodTable.appendChild(table);
+}
+
+function showDetails(fdcId) {
+  fetch(`https://api.nal.usda.gov/fdc/v1/food/${fdcId}?api_key=${apiKey}`)
+    .then(response => response.json())
+    .then(data => {
+      const modalContent = document.getElementById("modalContent");
+      modalContent.innerHTML = "<h3>Nutrients:</h3><ul>";
+      data.foodNutrients.forEach(nutrient => {
+        modalContent.innerHTML += `<li><strong>${nutrient.nutrient.name}</strong>: ${nutrient.amount} ${nutrient.nutrient.unitName}</li>`;
+      });
+      modalContent.innerHTML += "</ul>";
+      document.getElementById("myModal").style.display = "block";
+    })
+    .catch(error => console.error('Error fetching details:', error));
+}
+
+
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+// Close modal if user clicks outside of it
+window.onclick = function(event) {
+  const modal = document.getElementById("myModal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>
