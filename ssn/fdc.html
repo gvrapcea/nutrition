@@ -102,7 +102,7 @@ function displayFoodResults(foods) {
   foods.forEach(food => {
     const row = table.insertRow();
     row.innerHTML = `<td>${food.description}</td>
-                     <td><button onclick="showDetails('${food.fdcId}');delayedReplaceWords()" class="zoom details"><i class="fa fa-bar-chart"></i></button></td>`;
+                     <td><button onclick="showDetails('${food.fdcId}');delayedReplaceWords();delayedReplaceWordsx()" class="zoom details"><i class="fa fa-bar-chart"></i></button></td>`;
   });
 
   foodTable.appendChild(table);
@@ -166,7 +166,7 @@ function delayedReplaceWords() {
   "Vitamin A, RAE": "Vitamina A RAE",
   "Carotene, alpha": "Alfa caroten",
   "Carotene, beta": "Beta caroten",
-  "Cryptoxanthin, beta": "Beta cryptoxantină",
+  "Cryptoxanthin, beta": "Beta criptoxantină",
   "Lycopene": "Licopen",
   "Lutein \\+ zeaxanthin": "Luteină & zeaxantină",
   "Thiamin": "Tiamină",
@@ -299,6 +299,51 @@ function replaceWords(wordMap) {
     }
 }
 </script>
+
+<script>
+// Function to replace all occurrences of words in a webpage after a delay
+function delayedReplaceWordsx() {
+    setTimeout(function() {
+    
+        // Call replaceWords function with the word map containing old and new words
+        replaceWordsx({"Calorii \\(AtApă General Factors\\)": "Calorii, factori generali", "Calorii \\(AtApă Specific Factors\\)": "Calorii, factori specifici"});
+    }, 4000); 
+}
+
+// Function to replace all occurrences of words in a webpage
+function replaceWordsx(wordMap) {
+    // Get all text nodes in the body of the webpage
+    var elements = document.body.getElementsByTagName("*");
+    for (var i = 0; i < elements.length; i++) {
+        var element = elements[i];
+        // Iterate through each child node of the element
+        for (var j = 0; j < element.childNodes.length; j++) {
+            var node = element.childNodes[j];
+            // Replace the words in the text content of the node
+            if (node.nodeType === 3) { // Text node
+                var text = node.nodeValue;
+                // Iterate over each word to be replaced
+                for (var key in wordMap) {
+                    if (wordMap.hasOwnProperty(key)) {
+                        var oldWord = key;
+                        var newWord = wordMap[key];
+                        var replacedText = text.replace(new RegExp(oldWord, "gi"), newWord); // gi for global (all occurrences) and case-insensitive
+                        // Update the text content of the node if it has been changed
+                        if (replacedText !== text) {
+                            text = replacedText; // Update text for further replacements
+                        }
+                    }
+                }
+                // Update the text content of the node if it has been changed
+                if (replacedText !== node.nodeValue) {
+                    element.replaceChild(document.createTextNode(replacedText), node);
+                }
+            }
+        }
+    }
+}
+</script>
+
 
 
 </body>
