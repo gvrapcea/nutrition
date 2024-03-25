@@ -1,0 +1,319 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+<style>
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  left:20px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+.buttonx {
+  overflow: hidden;
+  transition: 0.2s;
+  background-color:#4CAF50;
+  font-size:22px;
+  margin:auto;
+  color:white;
+  outline: 0;
+  border: 0;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  padding:8px;
+}
+.buttonx:hover{
+	background-color:black;color:white;
+}
+.result{border-radius:10px;}
+.headq{background-color:#CCDCFA;padding:10px;border-radius:10px;text-align:center;font-size:22px;margin-bottom:15px;}
+.cici{border:2px solid #6FA9FA;border-radius:20px;width:100%;max-width:600px;margin:auto;background-color:white}
+.topp{font-size:18px;font-weight:bold}
+.chval{
+background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+border-radius:15px;
+padding:10px;
+transition:0.2s;
+cursor:pointer;
+}
+.chval:hover{
+filter:brightness(120%);
+}
+.joben{
+width:40px;
+text-align:center;
+font-size:20px;
+font-weight:bold;
+border:0px solid white;
+}
+</style>
+
+
+<div style="width:100%;background-color:white">
+<br><br><br>
+
+<form id="form" class="w3-container cici"><br>
+The Digestive Health Assessment was created by leading experts to help identify digestive complaints. You can often ignore the signs of possible intestinal problems. By answering these simple questions, you can check your digestive health and see if you need to seek help.
+<br><br>
+<div class="headq">SECTION A</div>
+  <label class="topp">There has been a persistent change in bowel activity (frequency, consistency, color, etc.) that cannot be explained by stress, change in diet, medication, or travel.</label><br><br>
+  <label class="container">Yes<input class="a" type="radio" name="az" value="1"><span class="checkmark"></span></label>
+  <label class="container">No<input class="a" type="radio" name="az" value="0"><span class="checkmark"></span></label>
+  <br>
+  <label class="topp">I have recently seen blood in my stool (faeces).</label><br><br>
+  <label class="container">Yes<input class="a" type="radio" name="aq" value="1"><span class="checkmark"></span></label>
+  <label class="container">No<input class="a" type="radio" name="aq" value="0"><span class="checkmark"></span></label>
+  <br>
+  <label class="topp">I have had persistent abdominal pain that is not related to a change in diet or stress.</label><br><br>
+  <label class="container">Yes<input class="a" type="radio" name="a" value="1"><span class="checkmark"></span></label>
+  <label class="container">No<input class="a" type="radio" name="a" value="0"><span class="checkmark"></span></label>
+  <br>
+  <label class="topp">I recently lost weight (more than 2 kg) for no apparent reason.</label><br><br>
+  <label class="container">Yes<input class="a" type="radio" name="b" value="1"><span class="checkmark"></span></label>
+  <label class="container">No<input class="a" type="radio" name="b" value="0"><span class="checkmark"></span></label>
+  <br>
+  <label class="topp">I have lost my appetite and/or feel sick frequently for no apparent reason.</label><br><br>
+  <label class="container">Yes<input class="a" type="radio" name="c" value="1"><span class="checkmark"></span></label>
+  <label class="container">No<input class="a" type="radio" name="c" value="0"><span class="checkmark"></span></label>
+  <br>
+  <label class="topp">I had a persistent bowel disorder associated with symptoms of fever, chills, sweats and malaise.</label><br><br>
+  <label class="container">Yes<input class="a" type="radio" name="d" value="1"><span class="checkmark"></span></label>
+  <label class="container">No<input class="a" type="radio" name="d" value="0"><span class="checkmark"></span></label>
+  <br>
+  <br><div class="headq">SECTION B</div>
+  <label class="topp">Either I have a stool several times a day, or I don't have it at all.</label><br><br>
+  <label class="container">Yes<input class="b" type="radio" name="e" value="1"><span class="checkmark"></span></label>
+  <label class="container">No<input class="b" type="radio" name="e" value="0"><span class="checkmark"></span></label>
+  <br>
+  <label class="topp">My stools can range from soft and watery to hard.</label><br><br>
+  <label class="container">Yes<input class="b" type="radio" name="f" value="1"><span class="checkmark"></span></label>
+  <label class="container">No<input class="b" type="radio" name="f" value="0"><span class="checkmark"></span></label>
+  <br>
+  <label class="topp">I often feel the urge to defecate, but I can't.</label><br><br>
+  <label class="container">Yes<input class="b" type="radio" name="g" value="1"><span class="checkmark"></span></label>
+  <label class="container">No<input class="b" type="radio" name="g" value="0"><span class="checkmark"></span></label>
+  <br>
+  <label class="topp">Stress often upsets my stomach.</label><br><br>
+  <label class="container">Yes<input class="b" type="radio" name="h" value="1"><span class="checkmark"></span></label>
+  <label class="container">No<input class="b" type="radio" name="h" value="0"><span class="checkmark"></span></label>
+  <br>
+  <label class="topp">There are so many different foods that upset me; I don't know what to eat.</label><br><br>
+  <label class="container">Yes<input class="b" type="radio" name="i" value="1"><span class="checkmark"></span></label>
+  <label class="container">No<input class="b" type="radio" name="i" value="0"><span class="checkmark"></span></label>
+  <br>
+  <label class="topp">In addition to abdominal and intestinal symptoms, I can be very tired and have indigestion, muscle pain and a host of other symptoms.</label><br><br>
+  <label class="container">Yes<input class="b" type="radio" name="j" value="1"><span class="checkmark"></span></label>
+  <label class="container">No<input class="b" type="radio" name="j" value="0"><span class="checkmark"></span></label>
+  <br>
+  <label class="topp">My stomach is feeling so bad that it makes me frustrated and depressed.</label><br><br>
+  <label class="container">Yes<input class="b" type="radio" name="k" value="1"><span class="checkmark"></span></label>
+  <label class="container">No<input class="b" type="radio" name="k" value="0"><span class="checkmark"></span></label>
+  <br>
+  <label class="topp">The bloating is so bad that I can look like I'm pregnant in a few months.</label><br><br>
+  <label class="container">Yes<input class="b" type="radio" name="l" value="1"><span class="checkmark"></span></label>
+  <label class="container">No<input class="b" type="radio" name="l" value="0"><span class="checkmark"></span></label>
+  <br>
+  <br><div class="headq">SECTION C</div>
+  <label class="topp">I rarely eat breakfast.</label><br><br>
+  <label class="container">Yes<input class="c" type="radio" name="m" value="1"><span class="checkmark"></span></label>
+  <label class="container">No<input class="c" type="radio" name="m" value="0"><span class="checkmark"></span></label>
+  <br>
+  <label class="topp">I don't eat 5 servings of fruits and vegetables a day and I rarely serve cereal for breakfast.</label><br><br>
+  <label class="container">Yes<input class="c" type="radio" name="n" value="1"><span class="checkmark"></span></label>
+  <label class="container">No<input class="c" type="radio" name="n" value="0"><span class="checkmark"></span></label>
+  <br>
+  <label class="topp">I do very little sports.</label><br><br>
+  <label class="container">Yes<input class="c" type="radio" name="o" value="1"><span class="checkmark"></span></label>
+  <label class="container">No<input class="c" type="radio" name="o" value="0"><span class="checkmark"></span></label>
+  <br>
+  <label class="topp">I sit in front of the TV for more than 2 hours every day.</label><br><br>
+  <label class="container">Yes<input class="c" type="radio" name="p" value="1"><span class="checkmark"></span></label>
+  <label class="container">No<input class="c" type="radio" name="p" value="0"><span class="checkmark"></span></label>
+  <br>
+  <label class="topp">I gained too much weight.</label><br><br>
+  <label class="container">Yes<input class="c" type="radio" name="r" value="1"><span class="checkmark"></span></label>
+  <label class="container">No<input class="c" type="radio" name="r" value="0"><span class="checkmark"></span></label>
+  <br>
+  <label class="topp">Rarely does a day go by without drinking alcoholic beverages.</label><br><br>
+  <label class="container">Yes<input class="c" type="radio" name="q" value="1"><span class="checkmark"></span></label>
+  <label class="container">No<input class="c" type="radio" name="q" value="0"><span class="checkmark"></span></label>
+  <br>
+  <label class="topp">I smoke cigarettes regularly.</label><br><br>
+  <label class="container">Yes<input class="c" type="radio" name="s" value="1"><span class="checkmark"></span></label>
+  <label class="container">No<input class="c" type="radio" name="s" value="0"><span class="checkmark"></span></label>
+  <br>
+  <label class="topp">I have very poor quality sleep.</label><br><br>
+  <label class="container">Yes<input class="c" type="radio" name="t" value="1"><span class="checkmark"></span></label>
+  <label class="container">No<input class="c" type="radio" name="t" value="0"><span class="checkmark"></span></label>
+  <br>
+  <label class="topp">I suffer from stress.</label><br><br>
+  <label class="container">Yes<input class="c" type="radio" name="u" value="1"><span class="checkmark"></span></label>
+  <label class="container">No<input class="c" type="radio" name="u" value="0"><span class="checkmark"></span></label>
+  <br>
+  
+  
+  
+  <center>
+  <button id="calculate-button" type="button" onclick="gio()" class="buttonx">Check</button>
+  </center>
+  <br><br>
+
+The Digestive Health Assessment is intended as a guide only for people over the age of 16. It is not intended to replace the help and advice of a healthcare professional. Consult a specialist if you have concerns, even if they are not listed in this assessment.  
+<br><br>
+</form>
+<br><br><br><br>
+</div>
+
+
+
+
+<div id="id01" class="w3-modal" style="z-index:100">
+    <div class="w3-modal-content w3-animate-zoom result">
+      <div class="w3-container">
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright" style="border-radius:0 10px 0 0">&times;</span>
+		<div id="result" style="color:gray"></div>
+		<br><br>
+		<div id="resultxx" style="font-size:18px;font-weight:bold;text-align:center;width:100%"></div>
+        <br><br>
+		<div id="resultxxa" style="font-size:20px;text-align:center;width:100%"></div>
+		<br><br>
+		
+		<br><br>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<script>
+
+function gio(){
+
+const calculateButton = document.querySelector('#calculate-button');
+const resultDiv = document.querySelector('#result');
+const xxy = document.querySelector('#resultxxa');		
+  let totala = 0;
+  let totalb = 0;
+  let totalc = 0;
+  
+  // loop through all elements with class 'symptom' and add up the values
+const symptoms = document.querySelectorAll('.a');
+symptoms.forEach(symptom => {
+  if (symptom.checked) {
+    totala += parseInt(symptom.value);
+  }
+});
+
+const symptomsb = document.querySelectorAll('.b');
+symptomsb.forEach(symptomb => {
+  if (symptomb.checked) {
+    totalb += parseInt(symptomb.value);
+  }
+});
+
+const symptomsc = document.querySelectorAll('.c');
+symptomsc.forEach(symptomc => {
+  if (symptomc.checked) {
+    totalc += parseInt(symptomc.value);
+  }
+});
+
+if (totala>0){
+	document.getElementById('id01').style.display='block';
+	xxy.innerHTML = `You may have a gastrointestinal condition that requires medical treatment. We advise you to consult a specialist as soon as possible`;
+}
+if (totala==0 && (totalb>0 || totalc>0)){
+	document.getElementById('id01').style.display='block';
+	xxy.innerHTML = `Chances are you have irritable bowel syndrome. If symptoms do not improve, talk to your family doctor or nurse.`;
+}
+if (totala==0 && totalb==0 && totalc>0){
+	document.getElementById('id01').style.display='block';
+	xxy.innerHTML = `You should consider some lifestyle changes.`;
+}
+if (totala==0 && totalb==0 && totalc==0){
+	document.getElementById('id01').style.display='block';
+	xxy.innerHTML = `Congratulations! You have no problem.`;
+}
+
+}
+</script>
+
+
