@@ -1,0 +1,1763 @@
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source Sans Pro">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">		
+<style>
+.parallax {font-family: 'Open Sans', sans-serif;line-height: 1.5;
+  background-color: transparent;top:0px
+  min-height: 600px;
+   
+  
+
+}
+
+
+#tot_amountx{
+    width:70px;
+}	    
+#tot_amounty{
+    width:70px;
+}
+#tot_amountxg{
+    width:70px;
+}	    
+#tot_amountyg{
+    width:70px;
+}
+#tot_amountxl{
+    width:70px;
+}	    
+#tot_amountyl{
+    width:70px;
+}
+
+.calcq{
+    color: white;text-align:center;font-size:20px; width:90%; max-width:400px; padding:5px;background-color:#91C18A;border:0px; border-radius:10px;
+    transition: transform .2s;
+}
+.calcq:hover{
+    transform: scale(1.1);
+}
+
+.hqw{
+color:white;
+background-color:#91C18A;
+text-align:center
+}
+.det{width:100%;}
+
+.det td{
+background-color:white;
+color:black;
+border-radius:10px;
+padding:4px;
+text-align:center;
+width:10%;
+font-size:14px;   
+}
+.detx{
+background-color:#E9EAED;
+color:black;
+border:0px solid black;
+text-align:center;
+width:50px;
+pointer-events: none;
+}
+   .inpxx{height:35px;}
+.transpx{background-color:transparent;color:black}    
+.transp{background-color:transparent;color:white}   
+.water{background: #136a8a;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #267871, #136a8a);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #267871, #136a8a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+color:white;}   
+.atlas{background: #ffb347;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ffcc33, #ffb347);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ffcc33, #ffb347); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.nature{background: #ADD100;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #7B920A, #ADD100);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #7B920A, #ADD100); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+color:white;}
+.predawn{background: #EFEFBB;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #D4D3DD, #EFEFBB);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #D4D3DD, #EFEFBB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+</style>
+
+
+
+
+<div class="parallax" style="height:500px">
+<div class="w3-half w3-containerxx w3-animate-left">
+    <br>
+   
+<div style="border:0px solid black; border-radius:20px; background-color:white"> 
+<h1 style="color:gray; text-align:center"></h1>
+
+<br>
+    <center>
+<table style="width:90%;margin-left:30px; max-width:400px"><tr><td>
+Weight &#160;&#160;</td>
+<td><input id = "greu" type="number" autocomplete="off" style="width:70%" class="inpxx"></td></tr>
+<tr><td>&nbsp;</td></tr> 
+<tr>   
+<td>Height &#160;&#160;</td>
+<td><input id = "inalt" type="number" autocomplete="off" style="width:70%" class="inpxx"></td>
+</tr>
+ <tr><td>&nbsp;</td></tr>       
+<tr>
+<td>Age &#160;&#160;</td>
+<td><input id = "v" type="number" autocomplete="off" style="width:70%" class="inpxx"></td></tr>
+   <tr><td>&nbsp;</td></tr> 
+<tr>
+<td>Gender &#160;&#160;</td>
+<td>
+<select id="s"  class="inpxx">
+        <option style="color:#EFEFEF" selected="selected" value="0" >-</option>
+        <option value="1">Male</option>
+        <option value="2">Female</option>
+</select>
+</td></tr>
+   <tr><td>&nbsp;</td></tr> 
+<tr>
+<td>Physical activity &#160;&#160;</td>
+<td>
+<select id="a" style="width:150px"  class="inpxx">
+        <option style="color:#EFEFEF" selected="selected" value="0"  > - </option>
+        <option value="1.2">Little / none</option>
+        <option value="1.375">Light</option>
+        <option value="1.55">Moderate (3-5 days/week)</option>
+        <option value="1.725">Very active (6-7 days/week)</option>
+        <option value="1.9">Extremely active (+ physically demanding job)</option>
+</select>
+</td>
+</tr>
+   <tr><td>&nbsp;</td></tr>
+</table>
+
+<br>
+<button id="showy" onclick="gg();funct();calculateAmountx(20);calculateAmounty(20);calculateAmountxl(20);calculateAmountyl(20);calculateAmountxg(20);calculateAmountyg(20);" class="calcq" style="cursor:pointer">Calculate</button>
+
+
+<div id="messx" style="display:none;color:red;text-align:center"> <br><br><h4>Fill in all the fields! </h4></div>
+
+</center>
+
+</div>
+<br>
+<style>
+.ti {
+    text-align:center;
+}
+.fro{
+    background-color:#EFF4FA;
+    border:0px;
+    color:#57563A;
+}
+.gg{
+    width:20%;
+    max-width:80px;
+}
+</style>
+  </div>
+
+    <div class="w3-half w3-containerxx w3-animate-right" style="border:0px solid black; border-radius:0 0 50px 50px; background-color:#EFF4FA;color:#514A31; text-align:center;font-size:20px;padding:3px;opacity:1;">
+<div id="showayz">        <h3 >
+            Results
+        </h3>
+        
+ <i style="font-size:14px"><i class="fa fa-angle-double-down"></i>&nbsp;&nbsp; Displayed after calculation &nbsp;&nbsp;<i class="fa fa-angle-double-down"></i></i>
+ <br>
+</div> 
+   
+       
+       <center>
+<div id="showayx" style="display: none; ">
+<div style="background-color:#0D5255; width:90%; max-width:400px; border-radius:10px; box-shadow: 1px 1px 10px 5px #888888;">
+
+<h3 style="color:white;font-weight:bold"><div id="containerxx">&nbsp;</div></h3>
+
+<table style="color:white;">
+<tr>
+<td>
+<div style="display:none">    
+<div class="tooltip" style="background-color:#477B95;border-radius:5px"> &nbsp;&nbsp;?&nbsp;&nbsp; <span class="tooltiptext" >Body mass index</span></div> 
+    &#160;BMI &#160;&#160; </div>   </td>
+<td> <div style="display:none">  <input id="imc" style="width:150px" readonly></div></td></tr>
+
+<tr>
+<td>
+    <div style="display:none">
+<div class="tooltip" style="background-color:#477B95;border-radius:5px"> &nbsp;&nbsp;?&nbsp;&nbsp; <span class="tooltiptext" >Basal metabolic rate</span></div>
+    &#160;BMR &#160;&#160;
+    </div>
+    </td>
+<td><div style="display:none"><input id="rmb" style="width:150px" readonly></div></td></tr>
+<tr>
+<td>
+    &#160; &#160;&#160;</td>
+<td>
+    <center>Calorie requirement:</center>
+    <input id="nc" style="text-align:center;width:150px; font-size:24px;color:white;background-color:#0D5255;border:0px;pointer-events:none" readonly>&#160;&#160;Kcal/day
+    </td></tr><tr>
+<td>
+    &#160; &#160;&#160;</td>
+<td>
+    <br><center>Optimal range:
+    <input id="gii" style="display:inline-block;text-align:left;width:70px; font-size:18px;color:white;background-color:#0D5255;border:0px;pointer-events:none" readonly>&#160;&#160;Kg
+    </center></td></tr>    
+</table>
+
+
+<br>
+</div>
+</div>
+</center>      
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+ 
+<div id="showay" style="display: none; "> 
+<br>
+
+<h3> Nutrient necessary        </h3>
+
+  <center>      
+        <table style="width:95%;height:15px;color:white;font-size:16px">
+<tr>
+<td style="width:30%; background-color:#04B704;border-radius:5px 0px 0px 5px">&nbsp; Protein 20%</td>
+<td style="width:30%; background-color:#04B704">&nbsp; Fat 30%</td>
+<td style="width:40%; background-color:#04B704;border-radius:0px 5px 5px 0px">Carbohydrates 50%</td>
+</tr>
+</table>
+</center>
+<i style="font-size:14px">* This is a general recommendation, for a proper distribution a nutritional consultation is required</i>
+<br><br>
+
+<div class="w3-row"> 
+<div class="w3-third"> 
+<b class="ti">Protein: </b>
+			<br>
+		<div style="display:none">
+		<input oninput="calculateAmountx(this.value);calculateAmounty(this.value);findTotal()" onchange="calculateAmountx(this.value); calculateAmounty(this.value);findTotal()" type="number" id="prott" step="any" name="prot" class="qty gg" value="20" autocomplete="off">&nbsp; % <i class="fa fa-long-arrow-right"></i> &nbsp;</div>
+		
+<script>
+            function calculateAmountx(val) {
+                let x = parseFloat(document.getElementById('nc').value);
+                let tot_price = (val * x)/100;
+                var divobj = document.getElementById('tot_amountx');
+                divobj.value = tot_price.toFixed(2);
+            }
+  function calculateAmounty(val) {
+                let x = parseFloat(document.getElementById('nc').value);
+                let tot_price = ((20 * x)/100)/4.1;
+                var divobj = document.getElementById('tot_amounty');
+                divobj.value = tot_price.toFixed(2);
+            }          
+           
+ function findTotal(){
+    var arr = document.getElementsByClassName("qty");
+    var tot=0;
+    for(var i=0;i<arr.length;i++){
+        if(parseInt(arr[i].value))
+            tot += parseInt(arr[i].value);
+    }
+    if (tot === 100)
+    {
+    document.getElementById('total').style.color = 'green';
+    document.getElementById('total').value = tot;}
+    else
+    {
+    document.getElementById('total').style.color = 'red';
+    document.getElementById('total').value = tot;}
+}  
+
+        </script>
+<div style="display:none">        
+<input  class="fro" name="tot_amountx" id="tot_amountx" type="text" readonly size="5"> Kcal <i class="fa fa-long-arrow-right"></i> &nbsp;
+</div>
+
+<input  class="fro" name="tot_amounty" id="tot_amounty" type="text" readonly size="5" style="pointer-events:none"> g<br>
+</div>
+
+
+
+
+<div class="w3-third">
+
+<b class="ti">Fat: </b>
+			<br>
+		<div style="display:none">
+		<input oninput="calculateAmountxl(this.value);calculateAmountyl(this.value);findTotal()" onchange="calculateAmountxl(this.value); calculateAmountyl(this.value);findTotal()" type="number" step="any" class="qty gg" name="lipi" value="30" autocomplete="off">&nbsp; % <i class="fa fa-long-arrow-right"></i> &nbsp;</div>
+<script>
+            function calculateAmountxl(val) {
+                let x = parseFloat(document.getElementById('nc').value);
+                let tot_price = (val * x)/100;
+                
+                /*display the result*/
+                var divobj = document.getElementById('tot_amountxl');
+                divobj.value = tot_price.toFixed(2);
+            }
+  function calculateAmountyl(val) {
+                let x = parseFloat(document.getElementById('nc').value);
+                let tot_price = ((30 * x)/100)/9.3;
+                
+                /*display the result*/
+                var divobj = document.getElementById('tot_amountyl');
+                divobj.value = tot_price.toFixed(2);
+            }          
+            
+            
+            
+        </script>
+<div style="display:none">           
+<input  class="fro" name="tot_amountxl" id="tot_amountxl" type="text" readonly size="5"> Kcal <i class="fa fa-long-arrow-right"></i> &nbsp;
+</div>
+<input  class="fro" name="tot_amountyl" id="tot_amountyl" type="text" readonly size="5" style="pointer-events:none"> g<br>
+
+</div><div class="w3-third">
+	
+<b class="ti"> Carbohydrates: </b>
+			<br>
+		<div style="display:none">
+		<input oninput="calculateAmountxg(this.value);calculateAmountyg(this.value);findTotal()" onchange="calculateAmountxg(this.value); calculateAmountyg(this.value);findTotal()" type="number" step="any" name="gluc" class="qty gg" value="50" autocomplete="off">&nbsp; % <i class="fa fa-long-arrow-right"></i> &nbsp;</div>
+<script>
+            function calculateAmountxg(val) {
+                let x = parseFloat(document.getElementById('nc').value);
+                let tot_price = (val * x)/100;
+                
+                /*display the result*/
+                var divobj = document.getElementById('tot_amountxg');
+                divobj.value = tot_price.toFixed(2);
+            }
+  function calculateAmountyg(val) {
+                let x = parseFloat(document.getElementById('nc').value);
+                let tot_price = ((50 * x)/100)/4.1;
+                
+                /*display the result*/
+                var divobj = document.getElementById('tot_amountyg');
+                divobj.value = tot_price.toFixed(2);
+            }          
+            
+            
+            
+        </script>
+<div style="display:none">           
+<input  class="fro" name="tot_amountxg" id="tot_amountxg" type="text" readonly size="5"> Kcal <i class="fa fa-long-arrow-right"></i> &nbsp;
+</div>
+<input  class="fro" name="tot_amountyg" id="tot_amountyg" type="text" readonly size="5" style="pointer-events:none"> g<br>
+</div>
+</div>
+<center><br>
+<button onclick='$("#id01").show(300);functmicro()' class="w3-button w3-padding-24 w3-circle w3-red" >Want to <br>know more?</button>
+</center>
+<div style="display:none">  
+<div style="text-align:center">
+<b>Total </b> <i style="font-size:14px">* must be 100%</i>
+<input style="border: none;width:15%;font-weight:bold;background-color:#D4C786" type="number" name="total" id="total" readonly> </div> 
+</div>
+      <br>
+ 
+
+</div>
+  </div>
+</div>
+
+<style>
+.button {
+  background-color: #E9EAED; /* Green #D0D1D3*/
+  color: black;
+  min-width:100px;
+  text-align: center;
+  margin-left:10px;
+  margin-right:10px;
+  margin-top:10px;
+  margin-bottom:10px;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+  transition-duration: 0.4s;
+  box-shadow: 0px 3px 5px grey;
+  padding:10px;
+}
+
+</style>
+
+  <div id="id01" class="w3-modal" style="z-index:7;backdrop-filter: blur(17px);">
+    <div class="w3-modal-content w3-animate-right w3-card-4" style="width:90%;z-index:7;margin-top:-40px;margin-bottom:50px;font-family: 'Open Sans', sans-serif;line-height: 1.5;">
+      <header class="w3-containerxx hqw" style="height:5px;background-color:white"> 
+        <span style="font-size:25px;color:black" onclick='$("#id01").hide(300);' 
+        class="w3-button w3-display-topright ">&times;</span>
+        <h3>&nbsp;</h3>
+      </header>
+      <div class="w3-containerxx" style="color:#676767; padding:5px">
+        <center>
+        <br>
+        Macronutrients
+         <div class="w3-container">
+         <div class="button atlas">Fibers<br>supply<br><input id="$fib_min" class="detx transpx">g</div>
+         <div class="button atlas">Monounsaturated fatty acids<br><input id="$mufa_min" class="detx transpx">g</div>
+<div class="button atlas">Polyunsaturated fatty acids<br><input id="$pufa_min" class="detx transpx">g</div>
+         </div>
+		
+        <br>
+        Vitamins
+         <div class="w3-container">
+         <div class="button nature" style="color:white">Vitamin A<br><input id="$vita_min_ug" class="detx transp">&#181;g</div>
+         <div class="button nature" style="color:white">Vitamin B1<br><input id="$vitb1_min_mg" class="detx transp">mg</div>
+         <div class="button nature" style="color:white">Vitamin B2<br><input id="$vitb2_min_mg" class="detx transp">mg</div>
+         <div class="button nature" style="color:white">Vitamin B3<br><input id="$vitb3_min_mg" class="detx transp">mg</div>
+         <div class="button nature" style="color:white">Vitamin B6<br><input id="$vitb6_min_mg" class="detx transp">mg</div>
+         <div class="button nature" style="color:white">Vitamin B9<br><input id="$vitb9_min_ug" class="detx transp">&#181;g</div>
+         <div class="button nature" style="color:white">Vitamin B12<br><input id="$vitb12_min_ug" class="detx transp">&#181;g</div>
+         <div class="button nature" style="color:white">Vitamin C<br><input id="$vitc_min_mg" class="detx transp">mg</div>
+         <div class="button nature" style="color:white">Vitamin D<br><input id="$vitd_min_ug" class="detx transp">&#181;g</div>
+         <div class="button nature" style="color:white">Vitamin E<br><input id="$vite_min_mg" class="detx transp">mg</div>
+         <div class="button nature" style="color:white">Vitamin K<br><input id="$vitk_min_ug" class="detx transp">&#181;g</div>
+        </div>
+        
+        <br>
+        MINERAL
+         <div class="w3-container">
+         <div class="button predawn">Calcium<br><input id="$ca_min" class="detx transpx">mg</div>
+         <div class="button predawn">Phosphorus<br><input id="$p_min" class="detx transpx">mg</div>
+         <div class="button predawn">Magnesium<br><input id="$mg_min" class="detx transpx">mg</div>
+         <div class="button predawn">Iron<br><input id="$fe_min" class="detx transpx">mg</div>
+         <div class="button predawn">Zinc<br><input id="$zn_min" class="detx transpx">mg</div>
+         <div class="button predawn">Copper<br><input id="$cu_min_mg" class="detx transpx">mg</div>
+         <div class="button predawn">Selenium<br><input id="$se_min" class="detx transpx">&#181;g</div>
+         <div class="button predawn">Potassium<br><input id="$k_min" class="detx transpx">mg</div>
+         <div class="button predawn">Sodium<br><input id="$na_min" class="detx transpx">mg</div>
+        </div>
+		
+        <br>
+        <div class="w3-container">
+        <div class="button water" style="color:white">Water<br><input id="$apa_min" class="detx water">ml</div>
+        </div>
+		
+        <br><br>
+        <i style="font-size:14px">g = grams, mg = milligrams, ml = milliliters, &#181;g = micrograms<br>
+        Recommended values: National Institutes of Health</i>
+         </center>
+      </div>
+
+    </div>
+
+</div>
+
+
+<script>
+function funct(){
+var g = parseFloat(document.getElementById('greu').value);
+var i = parseFloat(document.getElementById('inalt').value);
+var containerxx = document.getElementById('containerxx');
+
+if (i > 10)
+{var h = i / 100;
+var x = g / (h**2);
+var y = Math.round((x + Number.EPSILON) * 100) / 100;
+document.getElementById('imc').value = y;
+}else{
+var h = i
+var x = g / (h**2);
+var y = Math.round((x + Number.EPSILON) * 100) / 100;
+document.getElementById('imc').value = y;
+}
+if (y <= 18){ 
+//    containerxx.innerHTML = 'Subpondere';
+$('#containerxx').animate({'opacity': 0}, 400, function(){
+        $(this).html('Underweight').animate({'opacity': 1}, 400); 
+        $(this).css("color", "white");
+    });
+
+//containerxx.style.color = 'white';
+}
+if (y > 18 && y < 25){ 
+//    containerxx.innerHTML = 'Normoponderal';
+
+$('#containerxx').animate({'opacity': 0}, 400, function(){
+        $(this).html('Normal-weight').animate({'opacity': 1}, 400);  
+        $(this).css("color", "#92D050");
+    });
+
+//containerxx.style.color = '#92D050';
+}
+if (y >= 25 && y < 30){ 
+//    containerxx.innerHTML = 'Suprapondere';
+$('#containerxx').animate({'opacity': 0}, 400, function(){
+        $(this).html('Overweight').animate({'opacity': 1}, 400); 
+        $(this).css("color", "yellow");
+    });
+
+//containerxx.style.color = 'yellow';
+}
+if (y >= 30 && y < 35){ 
+//    containerxx.innerHTML = 'Obezitate grad 1';
+$('#containerxx').animate({'opacity': 0}, 400, function(){
+        $(this).html('Obesity degree 1').animate({'opacity': 1}, 400);  
+        $(this).css("color", "yellow");
+    });
+
+//containerxx.style.color = 'yellow';
+}
+if (y >= 35 && y < 40){ 
+//    containerxx.innerHTML = 'Obezitate grad 2';
+$('#containerxx').animate({'opacity': 0}, 400, function(){
+        $(this).html('Obesity degree 2').animate({'opacity': 1}, 400);  
+        $(this).css("color", "orange");
+    });
+
+//containerxx.style.color = 'orange';
+}
+if (y >= 40){ 
+//    containerxx.innerHTML = 'Obezitate grad 3';
+$('#containerxx').animate({'opacity': 0}, 400, function(){
+        $(this).html('Obesity degree 3').animate({'opacity': 1}, 400);    
+        $(this).css("color", "red");
+    });
+
+//containerxx.style.color = 'red';
+}
+
+var v = parseFloat(document.getElementById('v').value);
+var a = parseFloat(document.getElementById('a').value);
+var s = parseFloat(document.getElementById('s').value);
+
+var giix = h*h*18;
+var giia = h*h*25;
+giixz = Math.round((giix + Number.EPSILON) * 100) / 100;
+giiaz = Math.round((giia + Number.EPSILON) * 100) / 100;
+document.getElementById('gii').value = giixz.toFixed() + ' - ' + giiaz.toFixed();
+
+if (v != 0 && s != 0 )
+{
+	if (s == 1)
+	{
+    var r = h*100;
+	var k = 66.47 + 13.75*g + 5.003*r - 6.755*v;
+    var km = Math.round((k + Number.EPSILON) * 100) / 100;
+    document.getElementById('rmb').value = km;
+    
+    if (a != 0){
+    var o = k * a;
+    var om = Math.round((o + Number.EPSILON) * 100) / 100;
+    document.getElementById('nc').value = om;}
+    else {document.getElementById('nc').value = '';}
+	}else
+    {
+    var r = h*100;
+    var k = 655.1 + 9.563*g + 1.85*r - 4.676*v;
+    var km = Math.round((k + Number.EPSILON) * 100) / 100;
+    document.getElementById('rmb').value = km;
+    
+    if (a != 0){
+    var o = k * a;
+    var om = Math.round((o + Number.EPSILON) * 100) / 100;
+    document.getElementById('nc').value = om;}
+    else {document.getElementById('nc').value = '';}
+    }
+}else
+{document.getElementById('rmb').value = '';
+document.getElementById('nc').value = '';}
+}
+</script>
+<script>
+
+function functmicro(){
+
+$varsta = parseFloat(document.getElementById('v').value);
+$se = parseFloat(document.getElementById('s').value);
+$kk = parseFloat(document.getElementById('nc').value);
+
+$mufa_min_kcal = (15/100)*$kk;
+$mufa_min = $mufa_min_kcal / 9;
+
+$pufa_min_kcal = (5/100)*$kk;
+$pufa_min = $pufa_min_kcal / 9;
+
+
+if ($varsta != 0 && $varsta < 0.7)
+{
+$vita_min_ug = 400;
+$vita_max_ug = 600;
+
+$vitc_min_mg = 40;
+// $vitc_max_mg = 
+
+$vitd_min_ug = 10;
+$vitd_max_ug = 25;
+
+$vite_min_mg = 4;
+// $vite_max_mg = 
+
+$vitk_min_ug = 2;
+// $vitk_max_ug = 
+
+$vitb1_min_mg = 0.2;
+// $vitb1_max_mg = 
+
+$vitb2_min_mg = 0.3;
+// $vitb2_max_mg = 
+
+$vitb3_min_mg = 2;
+// $vitb3_max_mg = 
+
+$vitb6_min_mg = 0.1;
+// $vitb6_max_mg = 
+
+$vitb9_min_ug = 65;
+// $vitb9_max_ug = 
+
+$vitb12_min_ug = 0.4;
+// $vitb12_max_ug = 
+
+$vitcol_min_mg = 125;
+// $vitcol_max_mg = 
+
+$ca_min = 200;
+$ca_max = 1000;
+
+$cu_min_mg = 0.2;
+// $cu_max_mg = 
+
+$fe_min = 0.27;
+$fe_max = 40;
+
+$mg_min = 30;
+// $mg_max = 
+
+$p_min = 100;
+// $p_max = 
+
+$se_min = 15;
+$se_max = 45;
+
+$zn_min = 2;
+$zn_max = 4;
+
+$k_min = 400;
+// $k_max = 
+
+$na_min = 110;
+// $na_max = 
+
+$fib_min = 5;
+$apa_min = 700;
+}
+
+if ($varsta > 0.7 && $varsta < 1 || $varsta == 0.7)
+{
+$vita_min_ug = 500;
+$vita_max_ug = 600;
+
+$vitc_min_mg = 50;
+// $vitc_max_mg = 
+
+$vitd_min_ug = 10;
+$vitd_max_ug = 38;
+
+$vite_min_mg = 5;
+// $vite_max_mg = 
+
+$vitk_min_ug = 2.5;
+// $vitk_max_ug = 
+
+$vitb1_min_mg = 0.3;
+// $vitb1_max_mg = 
+
+$vitb2_min_mg = 0.4;
+// $vitb2_max_mg = 
+
+$vitb3_min_mg = 4;
+// $vitb3_max_mg = 
+
+$vitb6_min_mg = 0.3;
+// $vitb6_max_mg = 
+
+$vitb9_min_ug = 80;
+// $vitb9_max_ug = 
+
+$vitb12_min_ug = 0.5;
+// $vitb12_max_ug = 
+
+$vitcol_min_mg = 150;
+// $vitcol_max_mg = 
+
+$ca_min = 260;
+$ca_max = 1500;
+
+$cu_min_mg = 0.22;
+// $cu_max_mg = 
+
+$fe_min = 11;
+$fe_max = 40;
+
+$mg_min = 75;
+// $mg_max = 
+
+$p_min = 275;
+// $p_max = 
+
+$se_min = 20;
+$se_max = 60;
+
+$zn_min = 3;
+$zn_max = 5;
+
+$k_min = 860;
+// $k_max = 
+
+$na_min = 370;
+// $na_max = 
+
+$fib_min = 5;
+$apa_min = 800;
+}
+
+if ($varsta > 1 && $varsta < 4 || $varsta == 1)
+{
+$vita_min_ug = 300;
+$vita_max_ug = 600;
+
+$vitc_min_mg = 15;
+ $vitc_max_mg = 400;
+
+$vitd_min_ug = 15;
+$vitd_max_ug = 63;
+
+$vite_min_mg = 6;
+ $vite_max_mg = 200;
+
+$vitk_min_ug = 30;
+// $vitk_max_ug = 
+
+$vitb1_min_mg = 0.5;
+// $vitb1_max_mg = 
+
+$vitb2_min_mg = 0.5;
+// $vitb2_max_mg = 
+
+$vitb3_min_mg = 6;
+$vitb3_max_mg = 10;
+ 
+$vitb6_min_mg = 0.5;
+$vitb6_max_mg = 30; 
+
+$vitb9_min_ug = 150;
+ $vitb9_max_ug = 300;
+
+$vitb12_min_ug = 0.9;
+// $vitb12_max_ug = 
+
+$vitcol_min_mg = 200;
+ $vitcol_max_mg = 1000;
+
+$ca_min = 700;
+$ca_max = 2500;
+
+$cu_min_mg = 0.34;
+ $cu_max_mg = 1;
+
+$fe_min = 7;
+$fe_max = 40;
+
+$mg_min = 80;
+ $mg_max = 65;
+
+$p_min = 460;
+ $p_max = 3000;
+
+$se_min = 20;
+$se_max = 90;
+
+$zn_min = 3;
+$zn_max = 5;
+
+$k_min = 2000;
+// $k_max = 
+
+$na_min = 800;
+// $na_max = 
+
+$fib_min = 19;
+$apa_min = 1300;
+}
+
+
+if ($varsta > 4 && $varsta < 9 || $varsta == 4)
+{
+$vita_min_ug = 400;
+$vita_max_ug = 900;
+
+$vitc_min_mg = 25;
+$vitc_max_mg = 650;
+
+$vitd_min_ug = 15;
+$vitd_max_ug = 75;
+
+$vite_min_mg = 7;
+$vite_max_mg = 300;
+
+$vitk_min_ug = 55;
+// $vitk_max_ug = 
+
+$vitb1_min_mg = 0.6;
+// $vitb1_max_mg = 
+
+$vitb2_min_mg = 0.6;
+// $vitb2_max_mg = 
+
+$vitb3_min_mg = 8;
+$vitb3_max_mg = 15;
+
+$vitb6_min_mg = 0.6;
+$vitb6_max_mg = 40;
+
+$vitb9_min_ug = 200;
+$vitb9_max_ug = 400;
+
+$vitb12_min_ug = 1.2;
+// $vitb12_max_ug = 
+
+$vitcol_min_mg = 250;
+$vitcol_max_mg = 1000;
+
+$ca_min = 1000;
+$ca_max = 2500;
+
+$cu_min_mg = 0.44;
+$cu_max_mg = 3;
+
+$fe_min = 10;
+$fe_max = 40;
+
+$mg_min = 130;
+$mg_max = 110;
+
+$p_min = 500;
+$p_max = 3000;
+
+$se_min = 30;
+$se_max = 150;
+
+$zn_min = 5;
+$zn_max = 5;
+
+$k_min = 2300;
+// $k_max = 
+
+$na_min = 1000;
+// $na_max = 
+
+$fib_min = 25;
+$apa_min = 1700;
+}
+
+
+if ($se == 1){
+if ($varsta > 9 && $varsta < 14 || $varsta == 9)
+{
+$vita_min_ug = 600;
+$vita_max_ug = 1700;
+
+$vitc_min_mg = 45;
+$vitc_max_mg = 1200;
+
+$vitd_min_ug = 15;
+$vitd_max_ug = 100;
+
+$vite_min_mg = 11;
+$vite_max_mg = 600;
+
+$vitk_min_ug = 60;
+// $vitk_max_ug = 
+
+$vitb1_min_mg = 0.9;
+// $vitb1_max_mg = 
+
+$vitb2_min_mg = 0.9;
+// $vitb2_max_mg = 
+
+$vitb3_min_mg = 12;
+$vitb3_max_mg = 20;
+
+$vitb6_min_mg = 1;
+$vitb6_max_mg = 60;
+
+$vitb9_min_ug = 300;
+$vitb9_max_ug = 600;
+
+$vitb12_min_ug = 1.8;
+// $vitb12_max_ug = 
+
+$vitcol_min_mg = 375;
+$vitcol_max_mg = 2000;
+
+$ca_min = 1300;
+$ca_max = 3000;
+
+$cu_min_mg = 0.7;
+$cu_max_mg = 5;
+
+$fe_min = 8;
+$fe_max = 40;
+
+$mg_min = 240;
+$mg_max = 350;
+
+$p_min = 1250;
+$p_max = 4000;
+
+$se_min = 40;
+$se_max = 280;
+
+$zn_min = 8;
+$zn_max = 23;
+
+$k_min = 2500;
+// $k_max = 
+
+$na_min = 1200;
+// $na_max = 
+
+$fib_min = 31;
+$apa_min = 2400;
+}
+
+if ($varsta > 14 && $varsta < 19 || $varsta == 14)
+{
+$vita_min_ug = 900;
+$vita_max_ug = 2800;
+
+$vitc_min_mg = 75;
+$vitc_max_mg = 1800;
+
+$vitd_min_ug = 15;
+$vitd_max_ug = 100;
+
+$vite_min_mg = 15;
+$vite_max_mg = 800;
+
+$vitk_min_ug = 75;
+// $vitk_max_ug = 
+
+$vitb1_min_mg = 1.2;
+// $vitb1_max_mg = 
+
+$vitb2_min_mg = 1.3;
+// $vitb2_max_mg = 
+
+$vitb3_min_mg = 16;
+$vitb3_max_mg = 30;
+
+$vitb6_min_mg = 1.3;
+$vitb6_max_mg = 80;
+
+$vitb9_min_ug = 400;
+$vitb9_max_ug = 800;
+
+$vitb12_min_ug = 2.4;
+// $vitb12_max_ug = 
+
+$vitcol_min_mg = 550;
+$vitcol_max_mg = 3000;
+
+$ca_min = 1300;
+$ca_max = 3000;
+
+$cu_min_mg = 0.89;
+$cu_max_mg = 8;
+
+$fe_min = 11;
+$fe_max = 45;
+
+$mg_min = 350;
+$mg_max = 410;
+
+$p_min = 1250;
+$p_max = 4000;
+
+$se_min = 55;
+$se_max = 400;
+
+$zn_min = 11;
+$zn_max = 34;
+
+$k_min = 3000;
+// $k_max = 
+
+$na_min = 1500;
+// $na_max = 
+
+$fib_min = 38;
+$apa_min = 3300;
+}
+
+
+
+if ($varsta > 19 && $varsta < 31 || $varsta == 19)
+{
+$vita_min_ug = 900;
+$vita_max_ug = 3000;
+
+$vitc_min_mg = 90;
+$vitc_max_mg = 2000;
+
+$vitd_min_ug = 15;
+$vitd_max_ug = 100;
+
+$vite_min_mg = 15;
+$vite_max_mg = 1000;
+
+$vitk_min_ug = 120;
+// $vitk_max_ug = 
+
+$vitb1_min_mg = 1.2;
+// $vitb1_max_mg = 
+
+$vitb2_min_mg = 1.3;
+// $vitb2_max_mg = 
+
+$vitb3_min_mg = 16;
+$vitb3_max_mg = 35;
+
+$vitb6_min_mg = 1.3;
+$vitb6_max_mg = 100;
+
+$vitb9_min_ug = 400;
+$vitb9_max_ug = 1000;
+
+$vitb12_min_ug = 2.4;
+// $vitb12_max_ug = 
+
+$vitcol_min_mg = 550;
+$vitcol_max_mg = 3500;
+
+$ca_min = 1000;
+$ca_max = 2500;
+
+$cu_min_mg = 0.9;
+$cu_max_mg = 10;
+
+$fe_min = 8;
+$fe_max = 45;
+
+$mg_min = 350;
+$mg_max = 400;
+
+$p_min = 700;
+$p_max = 4000;
+
+$se_min = 55;
+$se_max = 400;
+
+$zn_min = 11;
+$zn_max = 40;
+
+$k_min = 3400;
+// $k_max = 
+
+$na_min = 1500;
+// $na_max = 
+
+$fib_min = 38;
+$apa_min = 3700;
+}
+
+
+
+if ($varsta > 31 && $varsta < 51 || $varsta == 31)
+{
+$vita_min_ug = 900;
+$vita_max_ug = 3000;
+
+$vitc_min_mg = 90;
+$vitc_max_mg = 2000;
+
+$vitd_min_ug = 15;
+$vitd_max_ug = 100;
+
+$vite_min_mg = 15;
+$vite_max_mg = 1000;
+
+$vitk_min_ug = 120;
+// $vitk_max_ug = 
+
+$vitb1_min_mg = 1.2;
+// $vitb1_max_mg = 
+
+$vitb2_min_mg = 1.3;
+// $vitb2_max_mg = 
+
+$vitb3_min_mg = 16;
+$vitb3_max_mg = 35;
+
+$vitb6_min_mg = 1.3;
+$vitb6_max_mg = 100;
+
+$vitb9_min_ug = 400;
+$vitb9_max_ug = 1000;
+
+$vitb12_min_ug = 2.4;
+// $vitb12_max_ug = 
+
+$vitcol_min_mg = 550;
+$vitcol_max_mg = 3500;
+
+$ca_min = 1000;
+$ca_max = 2500;
+
+$cu_min_mg = 0.9;
+$cu_max_mg = 10;
+
+$fe_min = 8;
+$fe_max = 45;
+
+$mg_min = 350;
+$mg_max = 420;
+
+$p_min = 700;
+$p_max = 4000;
+
+$se_min = 55;
+$se_max = 400;
+
+$zn_min = 11;
+$zn_max = 40;
+
+$k_min = 3400;
+// $k_max = 
+
+$na_min = 1500;
+// $na_max = 
+
+$fib_min = 38;
+$apa_min = 3700;
+}
+
+
+
+if ($varsta > 51 && $varsta < 71 || $varsta == 51)
+{
+$vita_min_ug = 900;
+$vita_max_ug = 3000;
+
+$vitc_min_mg = 90;
+$vitc_max_mg = 2000;
+
+$vitd_min_ug = 15;
+$vitd_max_ug = 100;
+
+$vite_min_mg = 15;
+$vite_max_mg = 1000;
+
+$vitk_min_ug = 120;
+// $vitk_max_ug = 
+
+$vitb1_min_mg = 1.2;
+// $vitb1_max_mg = 
+
+$vitb2_min_mg = 1.3;
+// $vitb2_max_mg = 
+
+$vitb3_min_mg = 16;
+$vitb3_max_mg = 35;
+
+$vitb6_min_mg = 1.7;
+$vitb6_max_mg = 100;
+
+$vitb9_min_ug = 400;
+$vitb9_max_ug = 1000;
+
+$vitb12_min_ug = 2.4;
+// $vitb12_max_ug = 
+
+$vitcol_min_mg = 550;
+$vitcol_max_mg = 3500;
+
+$ca_min = 1000;
+$ca_max = 2000;
+
+$cu_min_mg = 0.9;
+$cu_max_mg = 10;
+
+$fe_min = 8;
+$fe_max = 45;
+
+$mg_min = 350;
+$mg_max = 420;
+
+$p_min = 700;
+$p_max = 4000;
+
+$se_min = 55;
+$se_max = 400;
+
+$zn_min = 11;
+$zn_max = 40;
+
+$k_min = 3400;
+// $k_max = 
+
+$na_min = 1500;
+// $na_max = 
+
+$fib_min = 30;
+$apa_min = 3700;
+}
+
+
+if ($varsta > 70 )
+{
+$vita_min_ug = 900;
+$vita_max_ug = 3000;
+
+$vitc_min_mg = 90;
+$vitc_max_mg = 2000;
+
+$vitd_min_ug = 20;
+$vitd_max_ug = 100;
+
+$vite_min_mg = 15;
+$vite_max_mg = 1000;
+
+$vitk_min_ug = 120;
+// $vitk_max_ug = 
+
+$vitb1_min_mg = 1.2;
+// $vitb1_max_mg = 
+
+$vitb2_min_mg = 1.3;
+// $vitb2_max_mg = 
+
+$vitb3_min_mg = 16;
+$vitb3_max_mg = 35;
+
+$vitb6_min_mg = 1.7;
+$vitb6_max_mg = 100;
+
+$vitb9_min_ug = 400;
+$vitb9_max_ug = 1000;
+
+$vitb12_min_ug = 2.4;
+// $vitb12_max_ug = 
+
+$vitcol_min_mg = 550;
+$vitcol_max_mg = 3500;
+
+$ca_min = 1200;
+$ca_max = 2000;
+
+$cu_min_mg = 0.9;
+$cu_max_mg = 10;
+
+$fe_min = 8;
+$fe_max = 45;
+
+$mg_min = 350;
+$mg_max = 420;
+
+$p_min = 700;
+$p_max = 3000;
+
+$se_min = 55;
+$se_max = 400;
+
+$zn_min = 11;
+$zn_max = 40;
+
+$k_min = 3400;
+// $k_max = 
+
+$na_min = 1500;
+// $na_max = 
+
+$fib_min = 30;
+$apa_min = 3700;
+}
+
+}
+
+if ($se == 2){
+
+if ($varsta > 9 && $varsta < 14 || $varsta == 9)
+{
+$vita_min_ug = 600;
+$vita_max_ug = 1700;
+
+$vitc_min_mg = 45;
+$vitc_max_mg = 1200;
+
+$vitd_min_ug = 15;
+$vitd_max_ug = 100;
+
+$vite_min_mg = 11;
+$vite_max_mg = 600;
+
+$vitk_min_ug = 60;
+// $vitk_max_ug = 
+
+$vitb1_min_mg = 0.9;
+// $vitb1_max_mg = 
+
+$vitb2_min_mg = 0.9;
+// $vitb2_max_mg = 
+
+$vitb3_min_mg = 12;
+$vitb3_max_mg = 20;
+
+$vitb6_min_mg = 1;
+$vitb6_max_mg = 60;
+
+$vitb9_min_ug = 300;
+$vitb9_max_ug = 600;
+
+$vitb12_min_ug = 1.8;
+// $vitb12_max_ug = 
+
+$vitcol_min_mg = 375;
+$vitcol_max_mg = 2000;
+
+$ca_min = 1300;
+$ca_max = 3000;
+
+$cu_min_mg = 0.7;
+$cu_max_mg = 5;
+
+$fe_min = 8;
+$fe_max = 40;
+
+$mg_min = 240;
+$mg_max = 350;
+
+$p_min = 1250;
+$p_max = 4000;
+
+$se_min = 40;
+$se_max = 280;
+
+$zn_min = 8;
+$zn_max = 23;
+
+$k_min = 2300;
+// $k_max = 
+
+$na_min = 1200;
+// $na_max = 
+
+$fib_min = 26;
+$apa_min = 2100;
+}
+
+
+
+if ($varsta > 14 && $varsta < 19 || $varsta == 14)
+{
+$vita_min_ug = 700;
+$vita_max_ug = 2800;
+
+$vitc_min_mg = 65;
+$vitc_max_mg = 1800;
+
+$vitd_min_ug = 15;
+$vitd_max_ug = 100;
+
+$vite_min_mg = 15;
+$vite_max_mg = 800;
+
+$vitk_min_ug = 75;
+// $vitk_max_ug = 
+
+$vitb1_min_mg = 1;
+// $vitb1_max_mg = 
+
+$vitb2_min_mg = 1;
+// $vitb2_max_mg = 
+
+$vitb3_min_mg = 14;
+$vitb3_max_mg = 30;
+
+$vitb6_min_mg = 1.2;
+$vitb6_max_mg = 80;
+
+$vitb9_min_ug = 400;
+$vitb9_max_ug = 800;
+
+$vitb12_min_ug = 2.4;
+// $vitb12_max_ug = 
+
+$vitcol_min_mg = 400;
+$vitcol_max_mg = 3000;
+
+$ca_min = 1300;
+$ca_max = 3000;
+
+$cu_min_mg = 0.89;
+$cu_max_mg = 8;
+
+$fe_min = 15;
+$fe_max = 45;
+
+$mg_min = 350;
+$mg_max = 360;
+
+$p_min = 1250;
+$p_max = 4000;
+
+$se_min = 55;
+$se_max = 400;
+
+$zn_min = 9;
+$zn_max = 34;
+
+$k_min = 2300;
+// $k_max = 
+
+$na_min = 1500;
+// $na_max = 
+
+$fib_min = 26;
+$apa_min = 2300;
+}
+
+
+
+if ($varsta > 19 && $varsta < 31 || $varsta == 19)
+{
+$vita_min_ug = 700;
+$vita_max_ug = 3000;
+
+$vitc_min_mg = 75;
+$vitc_max_mg = 2000;
+
+$vitd_min_ug = 15;
+$vitd_max_ug = 100;
+
+$vite_min_mg = 15;
+$vite_max_mg = 1000;
+
+$vitk_min_ug = 90;
+// $vitk_max_ug = 
+
+$vitb1_min_mg = 1.1;
+// $vitb1_max_mg = 
+
+$vitb2_min_mg = 1.1;
+// $vitb2_max_mg = 
+
+$vitb3_min_mg = 14;
+$vitb3_max_mg = 35;
+
+$vitb6_min_mg = 1.3;
+$vitb6_max_mg = 100;
+
+$vitb9_min_ug = 400;
+$vitb9_max_ug = 1000;
+
+$vitb12_min_ug = 2.4;
+// $vitb12_max_ug = 
+
+$vitcol_min_mg = 425;
+$vitcol_max_mg = 3500;
+
+$ca_min = 1000;
+$ca_max = 2500;
+
+$cu_min_mg = 0.9;
+$cu_max_mg = 10;
+
+$fe_min = 18;
+$fe_max = 45;
+
+$mg_min = 310;
+$mg_max = 350;
+
+$p_min = 700;
+$p_max = 4000;
+
+$se_min = 55;
+$se_max = 400;
+
+$zn_min = 8;
+$zn_max = 40;
+
+$k_min = 2600;
+// $k_max = 
+
+$na_min = 1500;
+// $na_max = 
+
+$fib_min = 25;
+$apa_min = 2700;
+}
+
+
+
+if ($varsta > 31 && $varsta < 51 || $varsta == 31)
+{
+$vita_min_ug = 700;
+$vita_max_ug = 3000;
+
+$vitc_min_mg = 75;
+$vitc_max_mg = 2000;
+
+$vitd_min_ug = 15;
+$vitd_max_ug = 100;
+
+$vite_min_mg = 15;
+$vite_max_mg = 1000;
+
+$vitk_min_ug = 90;
+// $vitk_max_ug = 
+
+$vitb1_min_mg = 1.1;
+// $vitb1_max_mg = 
+
+$vitb2_min_mg = 1.1;
+// $vitb2_max_mg = 
+
+$vitb3_min_mg = 14;
+$vitb3_max_mg = 35;
+
+$vitb6_min_mg = 1.3;
+$vitb6_max_mg = 100;
+
+$vitb9_min_ug = 400;
+$vitb9_max_ug = 1000;
+
+$vitb12_min_ug = 2.4;
+// $vitb12_max_ug = 
+
+$vitcol_min_mg = 425;
+$vitcol_max_mg = 3500;
+
+$ca_min = 1000;
+$ca_max = 2500;
+
+$cu_min_mg = 0.9;
+$cu_max_mg = 10;
+
+$fe_min = 18;
+$fe_max = 45;
+
+$mg_min = 320;
+$mg_max = 350;
+
+$p_min = 700;
+$p_max = 4000;
+
+$se_min = 55;
+$se_max = 400;
+
+$zn_min = 8;
+$zn_max = 40;
+
+$k_min = 2600;
+// $k_max = 
+
+$na_min = 1500;
+// $na_max = 
+
+$fib_min = 25;
+$apa_min = 2700;
+}
+
+
+if ($varsta > 51 && $varsta < 71 || $varsta == 51)
+{
+$vita_min_ug = 700;
+$vita_max_ug = 3000;
+
+$vitc_min_mg = 75;
+$vitc_max_mg = 2000;
+
+$vitd_min_ug = 15;
+$vitd_max_ug = 100;
+
+$vite_min_mg = 15;
+$vite_max_mg = 1000;
+
+$vitk_min_ug = 90;
+// $vitk_max_ug = 
+
+$vitb1_min_mg = 1.1;
+// $vitb1_max_mg = 
+
+$vitb2_min_mg = 1.1;
+// $vitb2_max_mg = 
+
+$vitb3_min_mg = 14;
+$vitb3_max_mg = 35;
+
+$vitb6_min_mg = 1.5;
+$vitb6_max_mg = 100;
+
+$vitb9_min_ug = 400;
+$vitb9_max_ug = 1000;
+
+$vitb12_min_ug = 2.4;
+// $vitb12_max_ug = 
+
+$vitcol_min_mg = 425;
+$vitcol_max_mg = 3500;
+
+$ca_min = 1200;
+$ca_max = 2000;
+
+$cu_min_mg = 0.9;
+$cu_max_mg = 10;
+
+$fe_min = 8;
+$fe_max = 45;
+
+$mg_min = 320;
+$mg_max = 350;
+
+$p_min = 700;
+$p_max = 4000;
+
+$se_min = 55;
+$se_max = 400;
+
+$zn_min = 8;
+$zn_max = 40;
+
+$k_min = 2600;
+// $k_max = 
+
+$na_min = 1500;
+// $na_max = 
+
+$fib_min = 21;
+$apa_min = 2700;
+}
+
+
+if ($varsta > 70 )
+{
+$vita_min_ug = 700;
+$vita_max_ug = 3000;
+
+$vitc_min_mg = 75;
+$vitc_max_mg = 2000;
+
+$vitd_min_ug = 20;
+$vitd_max_ug = 100;
+
+$vite_min_mg = 15;
+$vite_max_mg = 1000;
+
+$vitk_min_ug = 90;
+// $vitk_max_ug = 
+
+$vitb1_min_mg = 1.1;
+// $vitb1_max_mg = 
+
+$vitb2_min_mg = 1.1;
+// $vitb2_max_mg = 
+
+$vitb3_min_mg = 14;
+$vitb3_max_mg = 35;
+
+$vitb6_min_mg = 1.5;
+$vitb6_max_mg = 100;
+
+$vitb9_min_ug = 400;
+$vitb9_max_ug = 1000;
+
+$vitb12_min_ug = 2.4;
+// $vitb12_max_ug = 
+
+$vitcol_min_mg = 425;
+$vitcol_max_mg = 3500;
+
+$ca_min = 1200;
+$ca_max = 2000;
+
+$cu_min_mg = 0.9;
+$cu_max_mg = 10;
+
+$fe_min = 8;
+$fe_max = 45;
+
+$mg_min = 320;
+$mg_max = 350;
+
+$p_min = 700;
+$p_max = 3000;
+
+$se_min = 55;
+$se_max = 400;
+
+$zn_min = 8;
+$zn_max = 40;
+
+$k_min = 2600;
+// $k_max = 
+
+$na_min = 1500;
+// $na_max = 
+
+$fib_min = 21;
+$apa_min = 2700;
+}
+}
+
+
+
+
+
+
+
+document.getElementById('$fib_min').value = $fib_min;
+document.getElementById('$mufa_min').value = $mufa_min.toFixed(2);
+document.getElementById('$pufa_min').value = $pufa_min.toFixed(2);
+document.getElementById('$vita_min_ug').value = $vita_min_ug;
+document.getElementById('$vitb1_min_mg').value = $vitb1_min_mg;
+document.getElementById('$vitb2_min_mg').value = $vitb2_min_mg;
+document.getElementById('$vitb3_min_mg').value = $vitb3_min_mg;
+document.getElementById('$vitb6_min_mg').value = $vitb6_min_mg;
+document.getElementById('$vitb9_min_ug').value = $vitb9_min_ug;
+document.getElementById('$vitb12_min_ug').value = $vitb12_min_ug;
+document.getElementById('$vitc_min_mg').value = $vitc_min_mg;
+document.getElementById('$vitd_min_ug').value = $vitd_min_ug;
+document.getElementById('$vite_min_mg').value = $vite_min_mg;
+document.getElementById('$vitk_min_ug').value = $vitk_min_ug;
+document.getElementById('$ca_min').value = $ca_min;
+document.getElementById('$p_min').value = $p_min;
+document.getElementById('$mg_min').value = $mg_min;
+document.getElementById('$fe_min').value = $fe_min;
+document.getElementById('$zn_min').value = $zn_min;
+document.getElementById('$cu_min_mg').value = $cu_min_mg;
+document.getElementById('$se_min').value = $se_min;
+document.getElementById('$k_min').value = $k_min;
+document.getElementById('$na_min').value = $na_min;
+document.getElementById('$apa_min').value = $apa_min;
+}
+</script>
+<script>
+
+function gg(){
+    if (!$("#greu").val() || !$("#inalt").val() || !$("#v").val() || $("#a").val()==0 || $("#s").val()==0)	{
+    $("#messx").show(300);
+setTimeout(function() { $("#messx").hide(300); }, 2000);
+    }else {$("#showay").show(500);
+    $("#showayx").show(300);
+    $("#showayz").hide(300);}
+	}
+
+</script>
+
+
