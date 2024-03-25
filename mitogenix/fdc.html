@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Search</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  .zoom {
+  transition: transform .2s; /* Animation */
+}
+
+.zoom:hover {
+  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+  .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  .padd{padding:10px; border-radius:20px}
+  .paddx{border-radius:0 20px 0 0}
+  .search_btt{background-color:black; color:white; border-radius:10px; cursor:pointer; border:0px; padding:5px}
+  .details{background-color:#072E70; color:#A6D336; border-radius:10px; cursor:pointer;width:90%;max-width:60px; border:0px; padding:5px}
+</style>
+</head>
+<body>
+
+<div class="w3-container">
+  <h2>Căutare în <b>limba engleză</b></h2><br>
+  <input type="text" id="foodInput" placeholder="ex. apple">
+  <button onclick="searchFood();" class="zoom search_btt">&nbsp;<i class="fa fa-search"></i>&nbsp;</button>
+</div>
+
+<div id="foodTable" class="w3-container"></div>
+<br><br>
+<div class="w3-container">
+U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2019. <a href="https://fdc.nal.usda.gov/" target="_blank" style="color:blue">https://fdc.nal.usda.gov/</a>
+</div>
+<!-- Modal -->
+<style>
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 12px;
+  height: 12px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+<div id="myModal" class="w3-modal">
+  <div class="padd w3-modal-content w3-animate-zoom">
+    <span class="paddx w3-button w3-display-topright" onclick="closeModal();document.getElementById('loading').style.display='block';">&times;</span>
+    <div id="loading">
+    <br> <div class="loader"></div><br>
+    </div>
+    <div id="modalContent"></div><br><br>
+  </div>
+</div>
+
+<script>
+// FoodData Central API key
+const apiKey = "WanljGDqpsfBxEBWakHXghxuQVqOBDaapaW0PCLZ";
+
+function searchFood() {
+  const searchTerm = document.getElementById("foodInput").value;
+  fetch(`https://api.nal.usda.gov/fdc/v1/foods/search?query=${searchTerm}&api_key=${apiKey}`)
+    .then(response => response.json())
+    .then(data => displayFoodResults(data.foods))
+    .catch(error => console.error('Error fetching data:', error));
+}
+
+function displayFoodResults(foods) {
+  const foodTable = document.getElementById("foodTable");
+  foodTable.innerHTML = ""; // Clear previous results
+
+  if (foods.length === 0) {
+    foodTable.innerHTML = "<p>No results found.</p>";
+    return;
+  }
+
+  const table = document.createElement("table");
+  table.classList.add("w3-table", "w3-striped", "w3-bordered");
+  const headerRow = table.insertRow();
+  headerRow.innerHTML = "<th>Denumire</th><th>Nutrienți</th>";
+
+  foods.forEach(food => {
+    const row = table.insertRow();
+    row.innerHTML = `<td>${food.description}</td>
+                     <td><button onclick="showDetails('${food.fdcId}');delayedReplaceWords();delayedReplaceWordsx()" class="zoom details"><i class="fa fa-bar-chart"></i></button></td>`;
+  });
+
+  foodTable.appendChild(table);
+}
+
+function showDetails(fdcId) {
+  fetch(`https://api.nal.usda.gov/fdc/v1/food/${fdcId}?api_key=${apiKey}`)
+    .then(response => response.json())
+    .then(data => {
+      const modalContent = document.getElementById("modalContent");
+      modalContent.innerHTML = "<h3>Valori nutriționale pentru 100g:</h3><ul>";
+      data.foodNutrients.forEach(nutrient => {
+        modalContent.innerHTML += `<li><strong>${nutrient.nutrient.name}</strong>: ${nutrient.amount} ${nutrient.nutrient.unitName}</li>`;
+      });
+      modalContent.innerHTML += "</ul>";
+      document.getElementById("myModal").style.display = "block";
+    })
+    .catch(error => console.error('Error fetching details:', error));
+}
+
+
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+// Close modal if user clicks outside of it
+window.onclick = function(event) {
+  const modal = document.getElementById("myModal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+<script>
+// Function to replace all occurrences of words in a webpage after a delay
+function delayedReplaceWords() {
+    setTimeout(function() {
+    document.getElementById("loading").style.display="none";
+        // Call replaceWords function with the word map containing old and new words
+        replaceWords({"Name": "Aliment","Energy": "Calorii",
+  "Protein": "Proteine",
+  "Carbohydrate, by difference": "Glucide",
+  "Carbohydrate, by summation": "Glucide",
+  "Energy \\(Atwater General Factors\\)": "Calorii (factori generali)",
+  "Energy \\(Atwater Specific Factors\\)": "Calorii (factori specifici)",
+  "Total lipid \\(fat\\)": "Lipide",
+  "Total Sugars": "Zaharuri",
+  "Sugars, Total": "Zaharuri",                    
+  "Fiber, total dietary": "Fibre",
+  "Proximates": "Aproximații",
+  "undefined g": " ",
+  "Ash": "Cenușă",
+  "Carbohydrates": "Carbohidrați",
+  "Sugars, total including NLEA": "Total zaharuri",
+  "Fatty acids, total saturated": "Acizi grași saturați",
+  "Fatty acids, total monounsaturated": "Acizi grași monosaturați",
+  "Fatty acids, total polyunsaturated": "Acizi grași polinesaturați",
+  "Fatty acids, total trans": "Acizi grași trans",
+  "Cholesterol": "Colsterol",
+  "Retinol": "Retinol",
+  "Vitamin A, RAE": "Vitamina A RAE",
+  "Carotene, alpha": "Alfa caroten",
+  "Carotene, beta": "Beta caroten",
+  "Cryptoxanthin, beta": "Beta cryptoxantină",
+  "Lycopene": "Licopen",
+  "Lutein \\+ zeaxanthin": "Luteină & zeaxantină",
+  "Thiamin": "Tiamină",
+  "Riboflavin": "Riboﬂavină",
+  "Niacin": "Niacină",
+  "Vitamin B-6": "Vitamina B6",
+  "Folic acid": "Acid folic",
+  "Folate, total": "Folați total",
+  "Folate, DFE": "Folați DFE",
+  "Folate, food": "Folați alimente",
+  "Choline, total": "Colină",
+  'Biotin': 'Biotină',
+  "Vitamin B-12": "Vitamina B12",
+  "Vitamin B-12, added": "Vitamina B12 adăugată",
+  "Vitamin B12, added": "Vitamina B12 adăugată",
+  "Vitamin C, total ascorbic acid": "Vitamina C",
+  "Vitamin D \\(D2 \\+ D3\\)": "Vitamina D (D2+D3)",
+  "Vitamin E \\(alpha-tocopherol\\)": "Vitamina E",
+  "Vitamin E, added": "Vitamina E adăugată",
+  "Vitamin K \\(phylloquinone\\)": "Vitamina K ",
+  "Calcium, Ca": "Calciu Ca",
+  "Phosphorus, P": "Fosfor P",
+  "Magnesium, Mg": "Magneziu Mg",
+  "Iron, Fe": "Fier Fe",
+  "Zinc, Zn": "Zinc Zn",
+  "Copper, Cu": "Cupru Cu",
+  "Selenium, Se": "Seleniu Se",
+  "Potassium, K": "Potasiu K",
+  "Sodium, Na": "Sodiu Na",
+  "Sucrose": "Zaharoză",
+  "Glucose": "Glucoză",
+  "Fructose": "Fructoză",
+  "Lactose": "Lactoză",
+  "Maltose": "Maltoză",
+  "Galactose": "Galactoză",
+  'Citric acid': 'Acid citric',
+'Malic acid': 'Acid malic',
+'Oxalic acid': 'Acid oxalic',
+'Pyruvic acid': 'Acid piruvic',
+'Quinic acid': 'Acid chinic',
+  "Starch": "Amidon",
+  "Minerals": "Minerale",
+  "Manganese, Mn": "Mangan Mn",
+  "Fluoride, F": "Fluor F",
+  "Vitamins and Other Components": "Vitamine și alți nutrienți",
+  "Pantothenic acid": "Acid pantotenic",
+  "Betaine": "Betaină",
+  "Tocopherol": "Tocoferol",
+  "International Units": "UI",
+  "Dihydrophylloquinone": "Dihidrofilochinonă",
+  "Lipids": "Lipide",
+  "not further defined": "fără alte definiții",
+  "trans-polyenoic": "trans-polienoic",
+  "Amino acids": "Aminoacizi",
+  ", added": ", adăugată",
+  "Betaine": "Betaină",
+  "Betaine": "Betaină",
+  "Theobromine": "Teobromină",
+  "Alcohol, ethyl": "Alcool",
+  "Water": "Apă",
+  "Vitamin A, IU": "Vitamina A, UI",
+'Vitamin D2 (ergocalciferol)': 'Vitamina D2 (ergocalciferol)',
+'Vitamin D3 (cholecalciferol)': 'Vitamina D3 (colecalciferol)',
+'Tryptophan': 'Triptofan',
+'Threonine': 'Treonină',
+'Isoleucine': 'Izoleucină',
+'Leucine': 'Leucină',
+'Lysine': 'Lizină',
+'Methionine': 'Metionină',
+'Phenylalanine': 'Fenilalanină',
+'Tyrosine': 'Tirozină',
+'Valine': 'Valină',
+'Arginine': 'Arginină',
+'Histidine': 'Histidină',
+'Alanine': 'Alanină',
+'Asparticacid': 'Acid aspartic',
+'Glutamicacid': 'Acid glutamic',
+'Glycine': 'Glicină',
+'Proline': 'Prolină',
+'Serine': 'Serină',
+'Hydroxyproline': 'Hydroxyprolina',
+'Cysteine': 'Cisteină',
+'Iodine, I': 'Iod',
+'Phytosterols': 'Fitosteroli',
+'Aspartic acid': 'Acid aspartic',
+'Glutamic acid': 'Acid glutamic',
+'Caffeine': 'Cafeină',
+'undefined mg': ' ',
+'undefined mg': ' ',
+'undefined mg': ' ',
+'Starch': 'Amidon',
+'Sulfur, S': 'Sulf',
+'Nickel, Ni': 'Nichel',
+'Molybdenum, Mo': 'Molibden',
+'Cobalt, Co': 'Cobalt',
+'Boron, B': 'Bor'});
+    }, 3000); 
+}
+
+// Function to replace all occurrences of words in a webpage
+function replaceWords(wordMap) {
+    // Get all text nodes in the body of the webpage
+    var elements = document.body.getElementsByTagName("*");
+    for (var i = 0; i < elements.length; i++) {
+        var element = elements[i];
+        // Iterate through each child node of the element
+        for (var j = 0; j < element.childNodes.length; j++) {
+            var node = element.childNodes[j];
+            // Replace the words in the text content of the node
+            if (node.nodeType === 3) { // Text node
+                var text = node.nodeValue;
+                // Iterate over each word to be replaced
+                for (var key in wordMap) {
+                    if (wordMap.hasOwnProperty(key)) {
+                        var oldWord = key;
+                        var newWord = wordMap[key];
+                        var replacedText = text.replace(new RegExp(oldWord, "gi"), newWord); // gi for global (all occurrences) and case-insensitive
+                        // Update the text content of the node if it has been changed
+                        if (replacedText !== text) {
+                            text = replacedText; // Update text for further replacements
+                        }
+                    }
+                }
+                // Update the text content of the node if it has been changed
+                if (replacedText !== node.nodeValue) {
+                    element.replaceChild(document.createTextNode(replacedText), node);
+                }
+            }
+        }
+    }
+}
+</script>
+
+<script>
+// Function to replace all occurrences of words in a webpage after a delay
+function delayedReplaceWordsx() {
+    setTimeout(function() {
+    
+        // Call replaceWords function with the word map containing old and new words
+        replaceWordsx({"Calorii \\(AtApă General Factors\\)": "Calorii, factori generali", "Calorii \\(AtApă Specific Factors\\)": "Calorii, factori specifici", "Zaharuri including NLEA": "Zaharuri"});
+    }, 3200); 
+}
+
+// Function to replace all occurrences of words in a webpage
+function replaceWordsx(wordMap) {
+    // Get all text nodes in the body of the webpage
+    var elements = document.body.getElementsByTagName("*");
+    for (var i = 0; i < elements.length; i++) {
+        var element = elements[i];
+        // Iterate through each child node of the element
+        for (var j = 0; j < element.childNodes.length; j++) {
+            var node = element.childNodes[j];
+            // Replace the words in the text content of the node
+            if (node.nodeType === 3) { // Text node
+                var text = node.nodeValue;
+                // Iterate over each word to be replaced
+                for (var key in wordMap) {
+                    if (wordMap.hasOwnProperty(key)) {
+                        var oldWord = key;
+                        var newWord = wordMap[key];
+                        var replacedText = text.replace(new RegExp(oldWord, "gi"), newWord); // gi for global (all occurrences) and case-insensitive
+                        // Update the text content of the node if it has been changed
+                        if (replacedText !== text) {
+                            text = replacedText; // Update text for further replacements
+                        }
+                    }
+                }
+                // Update the text content of the node if it has been changed
+                if (replacedText !== node.nodeValue) {
+                    element.replaceChild(document.createTextNode(replacedText), node);
+                }
+            }
+        }
+    }
+}
+</script>
+
+
+
+</body>
+</html>
