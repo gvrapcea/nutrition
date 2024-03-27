@@ -9,10 +9,13 @@
 <style>
   .zoom {
   transition: transform .2s; /* Animation */
+  cursor:pointer;
 }
 
 .zoom:hover {
   transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  background-color: #A6D336;
+  
 }
   .modal-content {
     background-color: #fefefe;
@@ -30,7 +33,7 @@
 <body>
 
 <div class="w3-container">
-  <h2>Căutare în <b>FoodData Central</b></h2><br>
+  <h3>Căutare în <b>limba engleză</b></h3><br>
   <input type="text" id="foodInput" placeholder="Caută aliment în engleză">
   <button onclick="searchFood();" class="zoom search_btt">&nbsp;<i class="fa fa-search"></i>&nbsp;</button>
 </div>
@@ -97,12 +100,11 @@ function displayFoodResults(foods) {
   const table = document.createElement("table");
   table.classList.add("w3-table", "w3-striped", "w3-bordered");
   const headerRow = table.insertRow();
-  headerRow.innerHTML = "<th>Denumire</th><th>Nutrienți</th>";
+  headerRow.innerHTML = "<th><br><br>Click pentru a vedea valorile nutriționale:</th>";
 
   foods.forEach(food => {
     const row = table.insertRow();
-    row.innerHTML = `<td>${food.description}</td>
-                     <td><button onclick="showDetails('${food.fdcId}');delayedReplaceWords();delayedReplaceWordsx()" class="zoom details"><i class="fa fa-bar-chart"></i></button></td>`;
+    row.innerHTML = `<td onclick="showDetails('${food.fdcId}');delayedReplaceWords();delayedReplaceWordsx()" class="zoom">${food.description}</td>`;
   });
 
   foodTable.appendChild(table);
