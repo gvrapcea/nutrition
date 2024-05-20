@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histogram with Chart.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<div class="w3-container">
+    <h1>Generate Histogram</h1>
+    <textarea id="dataInput" rows="10" cols="50" placeholder="Paste your data here..."></textarea><br>
+    <button onclick="generateHistogram()">Generate Histogram</button>
+    <canvas id="histogram"></canvas>
+</div>
+    <script>
+        function generateHistogram() {
+            // Get the input data
+            const rawData = document.getElementById('dataInput').value;
+            console.log('Raw Data:', rawData);
+
+            // Split the input data by new lines
+            const data = rawData.split('\n').map(line => line.trim()).filter(line => line);
+            console.log('Processed Data:', data);
+
+            // Calculate total number of rows
+            const totalRows = data.length;
+
+            // Process the data
+            const counts = {};
+            data.forEach(entry => {
+                const letters = entry.split(',').map(item => item.trim()).filter(item => item);
+                letters.forEach(letter => {
+                    counts[letter] = (counts[letter] || 0) + 1;
+                });
+            });
+            console.log('Counts:', counts);
+
+            // Prepare data for Chart.js
+            const labels = Object.keys(counts);
+            const values = Object.values(counts);
+
+            // Calculate percentages
+            const percentages = values.map(value => ((value / totalRows) * 100).toFixed(2) + '%');
+            console.log('Percentages:', percentages);
+
+            console.log('Labels:', labels);
+            console.log('Values:', values);
+
+            // Create or update the histogram using Chart.js
+            const ctx = document.getElementById('histogram').getContext('2d');
+
+            // Check if there is an existing chart and destroy it
+            if (window.histogram instanceof Chart) {
+                window.histogram.destroy();
+            }
+
+            // Create the new chart
+            window.histogram = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Histogramă',
+                        data: values,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y', // Make the bars horizontal
+                    plugins: {
+                        datalabels: {
+                            anchor: 'end',
+                            align: 'right',
+                            formatter: (value, context) => {
+                                const percentage = percentages[context.dataIndex];
+                                return `${value} (${percentage})`;
+                            },
+                            color: 'black'
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: totalRows * 1.2 // Adjust the maximum value of x-axis
+                        }
+                    }
+                },
+                plugins: [ChartDataLabels] // Register the plugin
+            });
+        }
+    </script>
+</body>
+</html>
