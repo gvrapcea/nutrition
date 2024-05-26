@@ -7,66 +7,73 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<style>
+    body{background-color:white}
+    .pointx{cursor:pointer;}
+</style>    
 <body>
     <div class="container">
-        <h1 class="text-center my-4">Nutrition Value Search</h1>
-        <br>
-        <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Show Nutrients</button>
-
+    <h1 class="text-center my-4" style="color:black">Nutrition Value Calculator</h1>
+    
         <div id="id01" class="w3-modal">
             <div class="w3-modal-content">
               <div class="w3-container">
                 <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-                <p>
+                <p style="color:black">
+                    
                     <br><label for="toggleColumn8">Fiber (g)</label>
                     <input type="checkbox" id="toggleColumn8">
-                    <br><label for="toggleColumn9">Carbohydrate, other (g)</label>
-                    <input type="checkbox" id="toggleColumn9">
+                    <br><label for="toggleColumn13">&nbsp; &nbsp; Fiber, soluble (g)</label>
+                    <input type="checkbox" id="toggleColumn13">
+                    <br><label for="toggleColumn14">&nbsp; &nbsp; Fiber, insoluble (g)</label>
+                    <input type="checkbox" id="toggleColumn14">
+
                     <br><label for="toggleColumn10">Water (g)</label>
                     <input type="checkbox" id="toggleColumn10">
                     <br><label for="toggleColumn11">Nitrogen (g)</label>
                     <input type="checkbox" id="toggleColumn11">
                     <br><label for="toggleColumn12">Ash (g)</label>
                     <input type="checkbox" id="toggleColumn12">
-                    <br><label for="toggleColumn13">Fiber, soluble (g)</label>
-                    <input type="checkbox" id="toggleColumn13">
-                    <br><label for="toggleColumn14">Fiber, insoluble (g)</label>
-                    <input type="checkbox" id="toggleColumn14">
+                    
+                    <br><label for="toggleColumn9">Carbohydrate, other (g)</label>
+                    <input type="checkbox" id="toggleColumn9">
                     <br><label for="toggleColumn15">Beta-glucan (g)</label>
                     <input type="checkbox" id="toggleColumn15">
                     <br><label for="toggleColumn16">Sugars, Total (g)</label>
                     <input type="checkbox" id="toggleColumn16">
-                    <br><label for="toggleColumn17">Total Sugars (g)</label>
+                    <br><label for="toggleColumn17">&nbsp; &nbsp; Total Sugars (g)</label>
                     <input type="checkbox" id="toggleColumn17">
-                    <br><label for="toggleColumn18">Sugars, added (g)</label>
+                    <br><label for="toggleColumn18">&nbsp; &nbsp; Sugars, added (g)</label>
                     <input type="checkbox" id="toggleColumn18">
-                    <br><label for="toggleColumn19">Sucrose (g)</label>
+                    <br><label for="toggleColumn19">&nbsp; &nbsp; Sucrose (g)</label>
                     <input type="checkbox" id="toggleColumn19">
-                    <br><label for="toggleColumn20">Glucose (g)</label>
+                    <br><label for="toggleColumn20">&nbsp; &nbsp; Glucose (g)</label>
                     <input type="checkbox" id="toggleColumn20">
-                    <br><label for="toggleColumn21">Fructose (g)</label>
+                    <br><label for="toggleColumn21">&nbsp; &nbsp; Fructose (g)</label>
                     <input type="checkbox" id="toggleColumn21">
-                    <br><label for="toggleColumn22">Lactose (g)</label>
+                    <br><label for="toggleColumn22">&nbsp; &nbsp; Lactose (g)</label>
                     <input type="checkbox" id="toggleColumn22">
-                    <br><label for="toggleColumn23">Maltose (g)</label>
+                    <br><label for="toggleColumn23">&nbsp; &nbsp; Maltose (g)</label>
                     <input type="checkbox" id="toggleColumn23">
-                    <br><label for="toggleColumn24">Galactose (g)</label>
+                    <br><label for="toggleColumn24">&nbsp; &nbsp; Galactose (g)</label>
                     <input type="checkbox" id="toggleColumn24">
-                    <br><label for="toggleColumn25">Starch (g)</label>
+                    <br><label for="toggleColumn25">&nbsp; &nbsp; Starch (g)</label>
                     <input type="checkbox" id="toggleColumn25">
-                    <br><label for="toggleColumn26">Raffinose (g)</label>
+                    <br><label for="toggleColumn26">&nbsp; &nbsp; Raffinose (g)</label>
                     <input type="checkbox" id="toggleColumn26">
-                    <br><label for="toggleColumn27">Stachyose (g)</label>
+                    <br><label for="toggleColumn27">&nbsp; &nbsp; Stachyose (g)</label>
                     <input type="checkbox" id="toggleColumn27">
-                    <br><label for="toggleColumn28">Verbascose (g)</label>
+                    <br><label for="toggleColumn28">&nbsp; &nbsp; Verbascose (g)</label>
                     <input type="checkbox" id="toggleColumn28">
-                    <br><label for="toggleColumn29">Sorbitol (g)</label>
+                    <br><label for="toggleColumn29">&nbsp; &nbsp; Sorbitol (g)</label>
                     <input type="checkbox" id="toggleColumn29">
-                    <br><label for="toggleColumn30">Xylitol (g)</label>
+                    <br><label for="toggleColumn30">&nbsp; &nbsp; Xylitol (g)</label>
                     <input type="checkbox" id="toggleColumn30">
-                    <br><label for="toggleColumn31">Inositol (mg)</label>
+                    <br><label for="toggleColumn31">&nbsp; &nbsp; Inositol (mg)</label>
                     <input type="checkbox" id="toggleColumn31">
+                    <br><br>
                     <br><label for="toggleColumn32">Acetic acid (mg)</label>
                     <input type="checkbox" id="toggleColumn32">
                     <br><label for="toggleColumn33">Citric acid (mg)</label>
@@ -81,6 +88,9 @@
                     <input type="checkbox" id="toggleColumn37">
                     <br><label for="toggleColumn38">Quinic acid (mg)</label>
                     <input type="checkbox" id="toggleColumn38">
+
+                    <br><br>
+                    <h4><b>Minerals</b></h4>
                     <br><label for="toggleColumn39">Calcium, Ca (mg)</label>
                     <input type="checkbox" id="toggleColumn39">
                     <br><label for="toggleColumn40">Iron, Fe (mg)</label>
@@ -115,19 +125,22 @@
                     <input type="checkbox" id="toggleColumn54">
                     <br><label for="toggleColumn55">Boron, B (µg)</label>
                     <input type="checkbox" id="toggleColumn55">
+
+                    <br><br>
+                    <h4><b>Vitamins</b></h4>
                     <br><label for="toggleColumn56">Vitamin C, total ascorbic acid (mg)</label>
                     <input type="checkbox" id="toggleColumn56">
-                    <br><label for="toggleColumn57">Thiamin (mg)</label>
+                    <br><label for="toggleColumn57">Thiamin B1(mg)</label>
                     <input type="checkbox" id="toggleColumn57">
-                    <br><label for="toggleColumn58">Riboflavin (mg)</label>
+                    <br><label for="toggleColumn58">Riboflavin B2 (mg)</label>
                     <input type="checkbox" id="toggleColumn58">
-                    <br><label for="toggleColumn59">Niacin (mg)</label>
+                    <br><label for="toggleColumn59">Niacin B3 (mg)</label>
                     <input type="checkbox" id="toggleColumn59">
-                    <br><label for="toggleColumn60">Pantothenic acid (mg)</label>
+                    <br><label for="toggleColumn60">Pantothenic acid B5 (mg)</label>
                     <input type="checkbox" id="toggleColumn60">
-                    <br><label for="toggleColumn61">Vitamin B-6 (mg)</label>
+                    <br><label for="toggleColumn61">Vitamin B6 (mg)</label>
                     <input type="checkbox" id="toggleColumn61">
-                    <br><label for="toggleColumn62">Biotin (µg)</label>
+                    <br><label for="toggleColumn62">Biotin B7(µg)</label>
                     <input type="checkbox" id="toggleColumn62">
                     <br><label for="toggleColumn63">Folate, total (µg)</label>
                     <input type="checkbox" id="toggleColumn63">
@@ -139,21 +152,21 @@
                     <input type="checkbox" id="toggleColumn66">
                     <br><label for="toggleColumn67">Choline, total (mg)</label>
                     <input type="checkbox" id="toggleColumn67">
-                    <br><label for="toggleColumn68">Choline, free (mg)</label>
+                    <br><label for="toggleColumn68">&nbsp; &nbsp; Choline, free (mg)</label>
                     <input type="checkbox" id="toggleColumn68">
-                    <br><label for="toggleColumn69">Choline, from phosphocholine (mg)</label>
+                    <br><label for="toggleColumn69">&nbsp; &nbsp; Choline, from phosphocholine (mg)</label>
                     <input type="checkbox" id="toggleColumn69">
-                    <br><label for="toggleColumn70">Choline, from phosphotidyl choline (mg)</label>
+                    <br><label for="toggleColumn70">&nbsp; &nbsp; Choline, from phosphotidyl choline (mg)</label>
                     <input type="checkbox" id="toggleColumn70">
-                    <br><label for="toggleColumn71">Choline, from glycerophosphocholine (mg)</label>
+                    <br><label for="toggleColumn71">&nbsp; &nbsp; Choline, from glycerophosphocholine (mg)</label>
                     <input type="checkbox" id="toggleColumn71">
-                    <br><label for="toggleColumn72">Choline, from sphingomyelin (mg)</label>
+                    <br><label for="toggleColumn72">&nbsp; &nbsp; Choline, from sphingomyelin (mg)</label>
                     <input type="checkbox" id="toggleColumn72">
                     <br><label for="toggleColumn73">Betaine (mg)</label>
                     <input type="checkbox" id="toggleColumn73">
-                    <br><label for="toggleColumn74">Vitamin B-12 (µg)</label>
+                    <br><label for="toggleColumn74">Vitamin B12 (µg)</label>
                     <input type="checkbox" id="toggleColumn74">
-                    <br><label for="toggleColumn75">Vitamin B-12, added (µg)</label>
+                    <br><label for="toggleColumn75">&nbsp; &nbsp; Vitamin B12, added (µg)</label>
                     <input type="checkbox" id="toggleColumn75">
                     <br><label for="toggleColumn76">Vitamin A, RAE (µg)</label>
                     <input type="checkbox" id="toggleColumn76">
@@ -161,13 +174,13 @@
                     <input type="checkbox" id="toggleColumn77">
                     <br><label for="toggleColumn78">Carotene, beta (µg)</label>
                     <input type="checkbox" id="toggleColumn78">
-                    <br><label for="toggleColumn79">cis-beta-Carotene (µg)</label>
+                    <br><label for="toggleColumn79">&nbsp; &nbsp; cis-beta-Carotene (µg)</label>
                     <input type="checkbox" id="toggleColumn79">
-                    <br><label for="toggleColumn80">trans-beta-Carotene (µg)</label>
+                    <br><label for="toggleColumn80">&nbsp; &nbsp; trans-beta-Carotene (µg)</label>
                     <input type="checkbox" id="toggleColumn80">
-                    <br><label for="toggleColumn81">Carotene, alpha (µg)</label>
+                    <br><label for="toggleColumn81">&nbsp; &nbsp; Carotene, alpha (µg)</label>
                     <input type="checkbox" id="toggleColumn81">
-                    <br><label for="toggleColumn82">Carotene, gamma (µg)</label>
+                    <br><label for="toggleColumn82">&nbsp; &nbsp; Carotene, gamma (µg)</label>
                     <input type="checkbox" id="toggleColumn82">
                     <br><label for="toggleColumn83">Cryptoxanthin, beta (µg)</label>
                     <input type="checkbox" id="toggleColumn83">
@@ -177,17 +190,17 @@
                     <input type="checkbox" id="toggleColumn85">
                     <br><label for="toggleColumn86">Lycopene (µg)</label>
                     <input type="checkbox" id="toggleColumn86">
-                    <br><label for="toggleColumn87">cis-Lycopene (µg)</label>
+                    <br><label for="toggleColumn87">&nbsp; &nbsp; cis-Lycopene (µg)</label>
                     <input type="checkbox" id="toggleColumn87">
-                    <br><label for="toggleColumn88">trans-Lycopene (µg)</label>
+                    <br><label for="toggleColumn88">&nbsp; &nbsp; trans-Lycopene (µg)</label>
                     <input type="checkbox" id="toggleColumn88">
                     <br><label for="toggleColumn89">Lutein + zeaxanthin (µg)</label>
                     <input type="checkbox" id="toggleColumn89">
-                    <br><label for="toggleColumn90">cis-Lutein/Zeaxanthin (µg)</label>
+                    <br><label for="toggleColumn90">&nbsp; &nbsp; cis-Lutein/Zeaxanthin (µg)</label>
                     <input type="checkbox" id="toggleColumn90">
-                    <br><label for="toggleColumn91">Lutein (µg)</label>
+                    <br><label for="toggleColumn91">&nbsp; &nbsp; Lutein (µg)</label>
                     <input type="checkbox" id="toggleColumn91">
-                    <br><label for="toggleColumn92">Zeaxanthin (µg)</label>
+                    <br><label for="toggleColumn92">&nbsp; &nbsp; Zeaxanthin (µg)</label>
                     <input type="checkbox" id="toggleColumn92">
                     <br><label for="toggleColumn93">Phytoene (µg)</label>
                     <input type="checkbox" id="toggleColumn93">
@@ -197,7 +210,7 @@
                     <input type="checkbox" id="toggleColumn95">
                     <br><label for="toggleColumn96">Vitamin E (alpha-tocopherol) (mg)</label>
                     <input type="checkbox" id="toggleColumn96">
-                    <br><label for="toggleColumn97">Vitamin E, added (mg)</label>
+                    <br><label for="toggleColumn97">&nbsp; &nbsp; Vitamin E, added (mg)</label>
                     <input type="checkbox" id="toggleColumn97">
                     <br><label for="toggleColumn98">Tocopherol, beta (mg)</label>
                     <input type="checkbox" id="toggleColumn98">
@@ -217,13 +230,13 @@
                     <input type="checkbox" id="toggleColumn105">
                     <br><label for="toggleColumn106">Vitamin D (D2 + D3) (µg)</label>
                     <input type="checkbox" id="toggleColumn106">
-                    <br><label for="toggleColumn107">Vitamin D2 (ergocalciferol) (µg)</label>
+                    <br><label for="toggleColumn107">&nbsp; &nbsp; Vitamin D2 (ergocalciferol) (µg)</label>
                     <input type="checkbox" id="toggleColumn107">
-                    <br><label for="toggleColumn108">Vitamin D3 (cholecalciferol) (µg)</label>
+                    <br><label for="toggleColumn108">&nbsp; &nbsp; Vitamin D3 (cholecalciferol) (µg)</label>
                     <input type="checkbox" id="toggleColumn108">
-                    <br><label for="toggleColumn109">25-hydroxycholecalciferol (µg)</label>
+                    <br><label for="toggleColumn109">&nbsp; &nbsp; 25-hydroxycholecalciferol (µg)</label>
                     <input type="checkbox" id="toggleColumn109">
-                    <br><label for="toggleColumn110">Vitamin D4 (µg)</label>
+                    <br><label for="toggleColumn110">&nbsp; &nbsp; Vitamin D4 (µg)</label>
                     <input type="checkbox" id="toggleColumn110">
                     <br><label for="toggleColumn111">Vitamin K (phylloquinone) (µg)</label>
                     <input type="checkbox" id="toggleColumn111">
@@ -231,10 +244,15 @@
                     <input type="checkbox" id="toggleColumn112">
                     <br><label for="toggleColumn113">Vitamin K (Menaquinone-4) (µg)</label>
                     <input type="checkbox" id="toggleColumn113">
-                    <br><label for="toggleColumn114">Specific Gravity (sp gr)</label>
+
+                    <br><br>
+                    <br><label for="toggleColumn114">&nbsp; &nbsp; Specific Gravity (sp gr)</label>
                     <input type="checkbox" id="toggleColumn114">
                     <br><label for="toggleColumn115">Glutathione (mg)</label>
                     <input type="checkbox" id="toggleColumn115">
+
+                    <br><br>
+                    <h4><b>Fatty acids</b></h4>
                     <br><label for="toggleColumn116">Fatty acids, total saturated (g)</label>
                     <input type="checkbox" id="toggleColumn116">
                     <br><label for="toggleColumn117">Fatty acids, total monounsaturated (g)</label>
@@ -281,6 +299,9 @@
                     <input type="checkbox" id="toggleColumn137">
                     <br><label for="toggleColumn138">Phytosterols, other (mg)</label>
                     <input type="checkbox" id="toggleColumn138">
+                    
+                    <br><br>
+                    <h4><b>Amino acids</b></h4>
                     <br><label for="toggleColumn139">Ergothioneine (mg)</label>
                     <input type="checkbox" id="toggleColumn139">
                     <br><label for="toggleColumn140">Tryptophan (g)</label>
@@ -323,6 +344,8 @@
                     <input type="checkbox" id="toggleColumn158">
                     <br><label for="toggleColumn159">Cysteine (g)</label>
                     <input type="checkbox" id="toggleColumn159">
+
+                    <br><br>
                     <br><label for="toggleColumn160">Alcohol, ethyl (g)</label>
                     <input type="checkbox" id="toggleColumn160">
                     <br><label for="toggleColumn161">Caffeine (mg)</label>
@@ -378,7 +401,7 @@
                     <button class="btn btn-outline-secondary bg-light" type="button" onclick="clearSearch()">X</button>
                 </div>
             </div>
-            <div id="search-suggestions" class="list-group position-absolute w-100"></div>
+            <div id="search-suggestions" class="list-group position-absolute w-100 pointx"></div>
         </div>
         <div id="search-suggestions" class="list-group"></div>
         <div id="quantity-dialog" class="modal" tabindex="-1" role="dialog">
@@ -400,17 +423,20 @@
                 </div>
             </div>
         </div>
-        <h2 class="text-center my-4">Selected Foods</h2>
+        <h2 class="text-center my-4"></h2>
+        
+        <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Show Nutrients</button>
+        <button class="btn btn-danger" id="clear-table-button" onclick="clearTable()">Clear All</button>        
         <table id="selected-foods" class="table table-striped">
             <thead class="thead-dark">
                 <tr>
 <th></th>
-<th>Food Name</th>
+<th>Food</th>
 <th>Quantity (g)</th>
 <th>Calories</th>
 <th>Protein (g)</th>
 <th>Fat (g)</th>
-<th>Carbohydrates (g)</th>
+<th>Carbs (g)</th>
 <th>Fiber (g)</th>
 <th>Carbohydrate, other (g)</th>
 <th>Water (g)</th>
@@ -590,16 +616,12 @@
             <tbody>
             </tbody>
             <tfoot>
-                <tr>
-                    <th></th>
-                    <th colspan="2" class="text-right">Total</th>
-                    <th id="total-calories">0</th>
-                    <th id="total-protein">0</th>
-                    <th id="total-fat">0</th>
-                    <th id="total-carbohydrates">0</th>
-                </tr>
-                <tr><th></th></tr>
-                <tr><th></th></tr>
+                
+                <tr><th>Total:</th></tr>
+                <tr><th colspan="5" class="text-right">Energy (kcal)</th><th id="total-calories">0</th></tr>
+                <tr><th colspan="5" class="text-right">Protein (g)</th><th id="total-protein">0</th></tr>
+                <tr><th colspan="5" class="text-right">Total lipid (g)</th><th id="total-fat">0</th></tr>
+                <tr><th colspan="5" class="text-right">Carbohydrates (g)</th><th id="total-carbohydrates">0</th></tr>
                 <tr><th colspan="5" class="text-right">Fiber (g)</th>
                     <th id="total-1">0</th></tr><tr>
                     <th colspan="5" class="text-right">Carbohydrate, other (g)</th>
@@ -948,6 +970,9 @@
                     <th id="total-173">0</th></tr>
             </tfoot>
         </table>
+    
+        <br><br>
+        <p style="color:black"><i class="fa fa-quote-right"></i> U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2019. <a href="https://fdc.nal.usda.gov/" target="_blank"> https://fdc.nal.usda.gov/ </a></p>    
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -966,7 +991,11 @@
 .hidden {
             display: none;
         }
-
+.quantity-cell {
+    font-weight: bold;
+    color:blue;
+    cursor: pointer;
+}
 </style>
 
 <script>
@@ -1979,6 +2008,7 @@ const cell179 = row.insertCell(179);
     deleteCell.innerHTML = '<button class="btn btn-danger btn-sm" onclick="deleteRow(this)">X</button>';
     cell1.textContent = food.description;
     cell2.textContent = quantity;
+    cell2.classList.add('quantity-cell');
     cell2.onclick = () => editQuantity(row);
     cell3.textContent = nutrientTotals.calories.toFixed(2);
     cell4.textContent = nutrientTotals.protein.toFixed(2);
@@ -4013,6 +4043,7 @@ const cell173 = row.insertCell(173);
         deleteCell.innerHTML = '<button class="btn btn-danger btn-sm" onclick="deleteRow(this)">X</button>';
         cell1.textContent = food.description;
         cell2.textContent = food.quantity;
+        cell2.classList.add('quantity-cell');
         cell2.onclick = () => editQuantity(row);
         cell3.textContent = food.calories.toFixed(2);
         cell4.textContent = food.protein.toFixed(2);
@@ -4791,4 +4822,23 @@ hideRowsWithZero();
 // Set interval to check every 1 second
 setInterval(hideRowsWithZero, 1000);
 
+function clearTable() {
+    // Clear local storage
+    localStorage.removeItem('selectedFoods');
+
+    // Clear table values
+    const tableBody = document.getElementById('selected-foods').getElementsByTagName('tbody')[0];
+    tableBody.innerHTML = '';
+
+    // Update totals
+    updateTotals();
+}
+
+
 </script>    
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        localStorage.clear();
+    });
+</script>
