@@ -653,7 +653,9 @@
                 <tr>
                     <th colspan="5" class="text-right"><br>Total:</th>
                     <th></th>
-                    <th><br><i title="% Daily Values according to FDA for a 2000 kcal diet">%DV</i></th>
+                    <th>
+                        <i class="w3-tooltip">%DV <span style="position:absolute;left: -70px;bottom:18px" class="w3-text w3-tag">% Daily Values according to FDA for a 2000 kcal diet</span></i>
+                        <button onclick="toggleDVVisibility()" type="button" title="show/hide" class="btn btn-light no-print"><i class="fa fa-eye"></i></button></th>
                 </tr>
                 <tr>
                     <th colspan="5" class="text-right">Calories</th>
@@ -2368,7 +2370,7 @@ document.getElementById("food-quantity").value = 100;
 function createRow(food, quantity) {
     const row = document.createElement('tr');
     row.innerHTML = `
-        <td><button class="btn btn-danger btn-sm no-print" onclick="removeRow(this)">Remove</button></td>
+        <td><button class="btn btn-danger btn-sm no-print" onclick="removeRow(this)"><i class="fa fa-trash-o"></i></button></td>
         <td>${food.description}</td>
         <td class="quantity-cell" onclick="editQuantity(this)">${quantity}</td>
         <td>${(food.nutrients.calories * (quantity / 100)).toFixed(2)}</td>
@@ -4046,3 +4048,23 @@ toggleColumn180.addEventListener('change', toggleColumns);
     setInterval(hideRowsWithZero, 1000);
     
     </script> 
+
+<script>
+    function toggleDVVisibility() {
+        // Get all the <th> elements
+        var thElements = document.getElementsByTagName("th");
+        
+        // Loop through the <th> elements
+        for (var i = 0; i < thElements.length; i++) {
+            // Check if the id contains "DV"
+            if (thElements[i].id.includes("DV")) {
+                // Toggle visibility
+                if (thElements[i].style.display === "none") {
+                    thElements[i].style.display = "";
+                } else {
+                    thElements[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
