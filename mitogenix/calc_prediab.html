@@ -486,16 +486,19 @@ function showTab(n) {
     document.getElementById("prevBtn").style.display = "inline";
   }
   if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "<a onclick='$("+'"#regForm"'+").hide(100);gataa()'>Trimite</a>";
+    document.getElementById("nextBtn").innerHTML = "Finish";
+    document.getElementById("nextBtn").onclick = function() {
+      finishForm();
+    };
   } else {
-    document.getElementById("nextBtn").innerHTML = "Următorul";
+    document.getElementById("nextBtn").innerHTML = "Next";
+    document.getElementById("nextBtn").onclick = function() {
+      nextPrev(1);
+    };
   }
   //... and run a function that will display the correct step indicator:
-  fixStepIndicator(n)
+  fixStepIndicator(n);
 }
-
-
-
 
 function nextPrev(n) {
   // This function will figure out which tab to display
@@ -547,18 +550,22 @@ function fixStepIndicator(n) {
   //... and adds the "active" class on the current step:
   x[n].className += " active";
 }
-</script>
 
-<script>
+function finishForm() {
+  var form = document.getElementById("regForm");
+  if (validateForm()) {
+    form.style.display = "none";
+    gataa();
+  }
+}
+
 var close = document.getElementsByClassName("closebtnx");
-var i;
-
-for (i = 0; i < close.length; i++) {
-  close[i].onclick = function(){
+for (var i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
     var ff = this.parentElement;
     ff.style.opacity = "0";
-    setTimeout(function(){ ff.style.display = "none"; }, 600);
-  }
+    setTimeout(function() { ff.style.display = "none"; }, 600);
+  };
 }
 
 </script>
