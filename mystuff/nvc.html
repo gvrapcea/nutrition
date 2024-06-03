@@ -2329,7 +2329,7 @@ case 'Inulin':
         suggestion.classList.add('list-group-item', 'list-group-item-action');
         suggestion.innerHTML = `
             <div>
-                <h5 class="mb-1">${food.description}</h5>
+                 <h5 class="mb-1">${food.description} ${food.brandOwner ? `[Brand: ${food.brandOwner}]` : ''}</h5>
                 <p class="mb-1" style="color:black">
                     Calories: ${nutrientTotals.calories} kcal,
                     Protein: ${nutrientTotals.protein} g,
