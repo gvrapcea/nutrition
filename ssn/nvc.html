@@ -1528,8 +1528,14 @@
         </table>
     </div>     
         <br><br>
-        <p style="color:black" class="no-print"><i class="fa fa-quote-right"></i> U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2019. <a href="https://fdc.nal.usda.gov/" target="_blank">https://fdc.nal.usda.gov/</a></p>
+        <p style="color:black" class="no-print"><i class="fa fa-quote-right"></i> U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2019. <a href="https://fdc.nal.usda.gov/" target="_blank">https://fdc.nal.usda.gov/</a><br><br>
+        Copyright © <span id="currentYear"></span> George Vrapcea <a href="https://nutritionarts.net/" target="_blank" style="color:blue;text-decoration:underline">nutritionarts.net</a></p>
     </div>
+    <script>
+        var today = new Date();
+        var year = today.getFullYear();
+        document.getElementById("currentYear").textContent = year;
+        </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
