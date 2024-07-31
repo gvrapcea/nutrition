@@ -486,12 +486,12 @@ function showTab(n) {
     document.getElementById("prevBtn").style.display = "inline";
   }
   if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Finish";
+    document.getElementById("nextBtn").innerHTML = "Finalizează";
     document.getElementById("nextBtn").onclick = function() {
       finishForm();
     };
   } else {
-    document.getElementById("nextBtn").innerHTML = "Next";
+    document.getElementById("nextBtn").innerHTML = "Următorul";
     document.getElementById("nextBtn").onclick = function() {
       nextPrev(1);
     };
