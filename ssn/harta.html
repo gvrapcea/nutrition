@@ -883,6 +883,28 @@ Nutriție și dietetică la toate categoriile de vârstă.
         <hr>
         </div>
       <!---------------------------->
+      
+      <!---------------------------->     
+    <div class="diet" id="Santa Dora" style="display:none">
+        <hr>
+        <b> Santa Dora</b>&nbsp;&nbsp;&nbsp;<i class="gray">Odorheiu Secuiesc și Corund, jud. Harghita</i>&nbsp;&nbsp;<div class="cabinet">Cabinet fizic</div><br>
+        Nutriție clinică - consiliere personalizată în boli metabolice, gastro-intestinale, cardio-vasculare,  alimentație funcțională, analiza și controlul greutății corporale
+  <br><br>
+        <!-- HTML !-->
+<button id="40" class="button-2" onclick="jQuery('#40').hide(100);jQuery('#40d').show(400);"><i class="fa fa-angle-down"></i>&nbsp;&nbsp;&nbsp; Detalii</button> 
+<div id="40d" class="d">
+<button id="40s" class="button-2" onclick="jQuery('#40').show();jQuery('#40d').hide(400);"><i class="fa fa-angle-up"></i></button><br><br>
+  Website: <a href="https://clinicavitality.ro/?lang=ro" target="_blank">www.clinicavitality.ro</a> <br>
+  Email: dietdocdora@gmail.com<br>
+  Adrese cabinete: <br>Str. Budvár Nr.41 (Odorheiu Secuiesc) <br> Str.  Spitalului nr.14 (Corund)
+
+  <br> 
+  <i style="color: gray">Telefon: 0770707671</i>
+  <br>
+  </div>
+        <hr>
+        </div>
+      <!---------------------------->
     
       <br><br>
     </div>
@@ -1038,6 +1060,10 @@ document.getElementById('Rădoi Diandra-Ioana').style.display='block';document.g
       <ul class="submenu">
         <li onclick="document.getElementById('id01').style.display='block';
      document.getElementById('Andrea Fănică').style.display='block';">Toplița</li>
+     <li onclick="document.getElementById('id01').style.display='block';
+     document.getElementById('Santa Dora').style.display='block';">Odorheiu Secuiesc</li>
+     <li onclick="document.getElementById('id01').style.display='block';
+     document.getElementById('Santa Dora').style.display='block';">Corund</li>
       </ul>
     </li>
     <li>Hunedoara
@@ -1242,6 +1268,7 @@ document.getElementById('Elisaneth Ungureanu').style.display='block';
     if (path.getAttribute('title') === 'Harghita') {
      document.getElementById('id01').style.display='block';
      document.getElementById('Andrea Fănică').style.display='block';
+     document.getElementById('Santa Dora').style.display='block';
     }
 
     if (path.getAttribute('title') === 'Hunedoara') {
